@@ -1,4 +1,4 @@
-baseURL = 'https://lividsu.github.io/'
+baseURL = 'lividsu.com'
 languageCode = 'en-us'
 title = 'Blogs of livid'
 theme = "papermod"
