@@ -1,334 +1,0 @@
-<!DOCTYPE html>
-<html lang="en" dir="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>Datawhale-Quant 笔记02 - Python读取股市数据 | Blogs of livid</title>
-<meta name="keywords" content="">
-<meta name="description" content="!pip install baostock import baostock as bs import pandas as pd import matplotlib.pyplot as plt # login baostock lg = bs.login() print(f&#39;error code {lg.error_code}&#39;) print(f&#39;error msg {lg.error_msg}&#39;) # 分钟线指标：date,time,code,open,high,low,close,volume,amount,adjustflag # 周月线指标：date,code,open,high,low,close,volume,amount,adjustflag,turn,pctChg rs = bs.query_history_k_data_plus(&#34;sh.600000&#34;, &#34;date,code,open,high,low,close,preclose,volume,amount,adjustflag,turn,tradestatus,pctChg,isST&#34;, start_date=&#39;2022-07-01&#39;, end_date=&#39;2023-12-31&#39;, frequency=&#34;d&#34;, adjustflag=&#34;3&#34;) login success!error code 0error msg successdata_list = [] while (rs.error_code == &#39;0&#39;) &amp; rs.next(): # 获取一条记录，将记录合并在一起 data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) df_result.info() &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;RangeIndex: 367 entries, 0 to 366Data columns (total 14 columns):# Column Non-Null Count Dtype --- ------ -------------- ----- 0 date 367 non-null object1 code 367 non-null object2 open 367 non-null object3 high 367 non-null object4 low 367 non-null object5 close 367 non-null object6 preclose 367 non-null object7 volume 367 non-null object8 amount 367 non-null object9 adjustflag 367 non-null object10 turn 367 non-null object11 tradestatus 367 non-null object12 pctChg 367 non-null object13 isST 367 non-null objectdtypes: object(14)memory usage: 40.">
-<meta name="author" content="">
-<link rel="canonical" href="http://lividsu.com/posts/finance_02/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.81bcc0302bb7f937e7deda301743f29a3323f321eb5e359a68439e554ebb6d4f.css" integrity="sha256-gbzAMCu3&#43;Tfn3towF0PymjMj8yHrXjWaaEOeVU67bU8=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://lividsu.com/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://lividsu.com/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://lividsu.com/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://lividsu.com/apple-touch-icon.png">
-<link rel="mask-icon" href="http://lividsu.com/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
-            }
-        }
-
-    </style>
-</noscript><meta property="og:title" content="Datawhale-Quant 笔记02 - Python读取股市数据" />
-<meta property="og:description" content="!pip install baostock import baostock as bs import pandas as pd import matplotlib.pyplot as plt # login baostock lg = bs.login() print(f&#39;error code {lg.error_code}&#39;) print(f&#39;error msg {lg.error_msg}&#39;) # 分钟线指标：date,time,code,open,high,low,close,volume,amount,adjustflag # 周月线指标：date,code,open,high,low,close,volume,amount,adjustflag,turn,pctChg rs = bs.query_history_k_data_plus(&#34;sh.600000&#34;, &#34;date,code,open,high,low,close,preclose,volume,amount,adjustflag,turn,tradestatus,pctChg,isST&#34;, start_date=&#39;2022-07-01&#39;, end_date=&#39;2023-12-31&#39;, frequency=&#34;d&#34;, adjustflag=&#34;3&#34;) login success!error code 0error msg successdata_list = [] while (rs.error_code == &#39;0&#39;) &amp; rs.next(): # 获取一条记录，将记录合并在一起 data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) df_result.info() &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;RangeIndex: 367 entries, 0 to 366Data columns (total 14 columns):# Column Non-Null Count Dtype --- ------ -------------- ----- 0 date 367 non-null object1 code 367 non-null object2 open 367 non-null object3 high 367 non-null object4 low 367 non-null object5 close 367 non-null object6 preclose 367 non-null object7 volume 367 non-null object8 amount 367 non-null object9 adjustflag 367 non-null object10 turn 367 non-null object11 tradestatus 367 non-null object12 pctChg 367 non-null object13 isST 367 non-null objectdtypes: object(14)memory usage: 40." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://lividsu.com/posts/finance_02/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-01-23T19:38:11+08:00" />
-<meta property="article:modified_time" content="2024-01-23T19:38:11+08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Datawhale-Quant 笔记02 - Python读取股市数据"/>
-<meta name="twitter:description" content="!pip install baostock import baostock as bs import pandas as pd import matplotlib.pyplot as plt # login baostock lg = bs.login() print(f&#39;error code {lg.error_code}&#39;) print(f&#39;error msg {lg.error_msg}&#39;) # 分钟线指标：date,time,code,open,high,low,close,volume,amount,adjustflag # 周月线指标：date,code,open,high,low,close,volume,amount,adjustflag,turn,pctChg rs = bs.query_history_k_data_plus(&#34;sh.600000&#34;, &#34;date,code,open,high,low,close,preclose,volume,amount,adjustflag,turn,tradestatus,pctChg,isST&#34;, start_date=&#39;2022-07-01&#39;, end_date=&#39;2023-12-31&#39;, frequency=&#34;d&#34;, adjustflag=&#34;3&#34;) login success!error code 0error msg successdata_list = [] while (rs.error_code == &#39;0&#39;) &amp; rs.next(): # 获取一条记录，将记录合并在一起 data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) df_result.info() &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;RangeIndex: 367 entries, 0 to 366Data columns (total 14 columns):# Column Non-Null Count Dtype --- ------ -------------- ----- 0 date 367 non-null object1 code 367 non-null object2 open 367 non-null object3 high 367 non-null object4 low 367 non-null object5 close 367 non-null object6 preclose 367 non-null object7 volume 367 non-null object8 amount 367 non-null object9 adjustflag 367 non-null object10 turn 367 non-null object11 tradestatus 367 non-null object12 pctChg 367 non-null object13 isST 367 non-null objectdtypes: object(14)memory usage: 40."/>
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Posts",
-      "item": "http://lividsu.com/posts/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "Datawhale-Quant 笔记02 - Python读取股市数据",
-      "item": "http://lividsu.com/posts/finance_02/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Datawhale-Quant 笔记02 - Python读取股市数据",
-  "name": "Datawhale-Quant 笔记02 - Python读取股市数据",
-  "description": "!pip install baostock import baostock as bs import pandas as pd import matplotlib.pyplot as plt # login baostock lg = bs.login() print(f\u0026#39;error code {lg.error_code}\u0026#39;) print(f\u0026#39;error msg {lg.error_msg}\u0026#39;) # 分钟线指标：date,time,code,open,high,low,close,volume,amount,adjustflag # 周月线指标：date,code,open,high,low,close,volume,amount,adjustflag,turn,pctChg rs = bs.query_history_k_data_plus(\u0026#34;sh.600000\u0026#34;, \u0026#34;date,code,open,high,low,close,preclose,volume,amount,adjustflag,turn,tradestatus,pctChg,isST\u0026#34;, start_date=\u0026#39;2022-07-01\u0026#39;, end_date=\u0026#39;2023-12-31\u0026#39;, frequency=\u0026#34;d\u0026#34;, adjustflag=\u0026#34;3\u0026#34;) login success!\rerror code 0\rerror msg success\rdata_list = [] while (rs.error_code == \u0026#39;0\u0026#39;) \u0026amp; rs.next(): # 获取一条记录，将记录合并在一起 data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) df_result.info() \u0026lt;class 'pandas.core.frame.DataFrame'\u0026gt;\rRangeIndex: 367 entries, 0 to 366\rData columns (total 14 columns):\r# Column Non-Null Count Dtype --- ------ -------------- ----- 0 date 367 non-null object\r1 code 367 non-null object\r2 open 367 non-null object\r3 high 367 non-null object\r4 low 367 non-null object\r5 close 367 non-null object\r6 preclose 367 non-null object\r7 volume 367 non-null object\r8 amount 367 non-null object\r9 adjustflag 367 non-null object\r10 turn 367 non-null object\r11 tradestatus 367 non-null object\r12 pctChg 367 non-null object\r13 isST 367 non-null object\rdtypes: object(14)\rmemory usage: 40.",
-  "keywords": [
-    
-  ],
-  "articleBody": "!pip install baostock import baostock as bs import pandas as pd import matplotlib.pyplot as plt # login baostock lg = bs.login() print(f'error code {lg.error_code}') print(f'error msg {lg.error_msg}') # 分钟线指标：date,time,code,open,high,low,close,volume,amount,adjustflag # 周月线指标：date,code,open,high,low,close,volume,amount,adjustflag,turn,pctChg rs = bs.query_history_k_data_plus(\"sh.600000\", \"date,code,open,high,low,close,preclose,volume,amount,adjustflag,turn,tradestatus,pctChg,isST\", start_date='2022-07-01', end_date='2023-12-31', frequency=\"d\", adjustflag=\"3\") login success!\rerror code 0\rerror msg success\rdata_list = [] while (rs.error_code == '0') \u0026 rs.next(): # 获取一条记录，将记录合并在一起 data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) df_result.info() ",
-  "wordCount" : "242",
-  "inLanguage": "en",
-  "datePublished": "2024-01-23T19:38:11+08:00",
-  "dateModified": "2024-01-23T19:38:11+08:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "http://lividsu.com/posts/finance_02/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Blogs of livid",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "http://lividsu.com/favicon.ico"
-    }
-  }
-}
-</script>
-    
-</head>
-
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="http://lividsu.com/" accesskey="h" title="Blogs of livid (Alt + H)">Blogs of livid</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <ul id="menu">
-        </ul>
-    </nav>
-</header>
-<main class="main">
-
-<article class="post-single">
-  <header class="post-header">
-    
-    <h1 class="post-title entry-hint-parent">
-      Datawhale-Quant 笔记02 - Python读取股市数据
-    </h1>
-    <div class="post-meta"><span title='2024-01-23 19:38:11 +0800 CST'>January 23, 2024</span>
-
-</div>
-  </header> 
-  <div class="post-content"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">!</span>pip install baostock
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> baostock <span style="color:#66d9ef">as</span> bs
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># login baostock</span>
-</span></span><span style="display:flex;"><span>lg <span style="color:#f92672">=</span> bs<span style="color:#f92672">.</span>login()
-</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;error code </span><span style="color:#e6db74">{</span>lg<span style="color:#f92672">.</span>error_code<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>)
-</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;error msg </span><span style="color:#e6db74">{</span>lg<span style="color:#f92672">.</span>error_msg<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 分钟线指标：date,time,code,open,high,low,close,volume,amount,adjustflag</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 周月线指标：date,code,open,high,low,close,volume,amount,adjustflag,turn,pctChg</span>
-</span></span><span style="display:flex;"><span>rs <span style="color:#f92672">=</span> bs<span style="color:#f92672">.</span>query_history_k_data_plus(<span style="color:#e6db74">&#34;sh.600000&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;date,code,open,high,low,close,preclose,volume,amount,adjustflag,turn,tradestatus,pctChg,isST&#34;</span>,
-</span></span><span style="display:flex;"><span>    start_date<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;2022-07-01&#39;</span>, end_date<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;2023-12-31&#39;</span>,
-</span></span><span style="display:flex;"><span>    frequency<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;d&#34;</span>, adjustflag<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;3&#34;</span>)
-</span></span></code></pre></div><pre><code>login success!
-error code 0
-error msg success
-</code></pre>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>data_list <span style="color:#f92672">=</span> []
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> (rs<span style="color:#f92672">.</span>error_code <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;0&#39;</span>) <span style="color:#f92672">&amp;</span> rs<span style="color:#f92672">.</span>next():
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 获取一条记录，将记录合并在一起</span>
-</span></span><span style="display:flex;"><span>    data_list<span style="color:#f92672">.</span>append(rs<span style="color:#f92672">.</span>get_row_data())
-</span></span><span style="display:flex;"><span>df_result <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(data_list, columns<span style="color:#f92672">=</span>rs<span style="color:#f92672">.</span>fields)
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df_result<span style="color:#f92672">.</span>info()
-</span></span></code></pre></div><pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
-RangeIndex: 367 entries, 0 to 366
-Data columns (total 14 columns):
- #   Column       Non-Null Count  Dtype 
----  ------       --------------  ----- 
- 0   date         367 non-null    object
- 1   code         367 non-null    object
- 2   open         367 non-null    object
- 3   high         367 non-null    object
- 4   low          367 non-null    object
- 5   close        367 non-null    object
- 6   preclose     367 non-null    object
- 7   volume       367 non-null    object
- 8   amount       367 non-null    object
- 9   adjustflag   367 non-null    object
- 10  turn         367 non-null    object
- 11  tradestatus  367 non-null    object
- 12  pctChg       367 non-null    object
- 13  isST         367 non-null    object
-dtypes: object(14)
-memory usage: 40.3+ KB
-</code></pre>
-<p><strong>逐条解释</strong><br>
-date: 交易所日期<br>
-code：证券代码，sh.600000是上海浦东发展银行股份有限公司，差得2022-07-01收盘价为¥7.99，符合一致<br>
-open：开盘价<br>
-high：最高价<br>
-low：最低价<br>
-close：收盘价<br>
-preclose：前收盘价，即前一天收盘价用来参考<br>
-volume：成交量（股）
-amount：成交额（人民币）<br>
-adjustflag：复权状态(1：后复权， 2：前复权，3：不复权) 复权是为了消除如分红，拆细等操作的影响。<br>
-turn：换手率， 也就是成交量在流通量里的占比。这里的换手率低于10%，属于偏低。<br>
-tradestatus：交易状态(1：正常交易 0：停牌)<br>
-pctChg：涨跌幅，[(指定交易日的收盘价-指定交易日前收盘价)/指定交易日前收盘价]*100%<br>
-isST：中国市场上被打上特殊标记（special treatment），表示公司近期出现了一些财务问题，可能会被限制交易</p>
-<p><strong>PE 市盈率</strong><br>
-PE(Price-to-Earnings Ratio) = 股票当前价格 / 每股盈利<br>
-EPS(Earnings Per Share)（每股盈利）= 净利润 / 加权平均普通股数量</p>
-<p><strong>PS 市销率</strong><br>
-PS(Price-to-Sales Ratio) = 股票市值 / 年销售收入
-较低的市销率表示相对便宜，高成长的科技公司比较高，传统行业则比较低</p>
-<p><strong>PB 市净率</strong><br>
-PB(Price-to-Book Ratio) = 每股股价 / 每股净值<br>
-Book指的是净值，即净资产</p>
-<p><strong>PC 市现率</strong><br>
-PC(Price-to-Cash Flow Ratio) = 股票市值 / 现金流<br>
-衡量市值相对于现金流的比例</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Check the close price and rolling 5 / 100 average number</span>
-</span></span><span style="display:flex;"><span>df_result[<span style="color:#e6db74">&#39;close&#39;</span>]<span style="color:#f92672">.</span>astype(float)<span style="color:#f92672">.</span>plot()
-</span></span><span style="display:flex;"><span>df_result[<span style="color:#e6db74">&#39;close&#39;</span>]<span style="color:#f92672">.</span>astype(float)<span style="color:#f92672">.</span>rolling(window<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>)<span style="color:#f92672">.</span>mean()<span style="color:#f92672">.</span>plot()
-</span></span><span style="display:flex;"><span>df_result[<span style="color:#e6db74">&#39;close&#39;</span>]<span style="color:#f92672">.</span>astype(float)<span style="color:#f92672">.</span>rolling(window<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)<span style="color:#f92672">.</span>mean()<span style="color:#f92672">.</span>plot()
-</span></span></code></pre></div><pre><code>&lt;Axes: &gt;
-</code></pre>
-<p><img loading="lazy" src="/img/finance_02_files/finance_02_10_1.png" alt="png"  />
-</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div>
-
-  </div>
-
-  <footer class="post-footer">
-    <ul class="post-tags">
-    </ul>
-  </footer>
-</article>
-    </main>
-    
-<footer class="footer">
-    <span>&copy; 2024 <a href="http://lividsu.com/">Blogs of livid</a></span>
-    
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
-
-<script>
-    let menu = document.getElementById('menu')
-    if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-</body>
-
-</html>
