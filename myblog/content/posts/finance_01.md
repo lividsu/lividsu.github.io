@@ -1,5 +1,5 @@
 +++
-title = 'Datawhale-Quant 笔记 - 金融市场基本概念'
+title = 'Datawhale-quant 笔记 - 金融市场基本概念'
 date = 2024-01-21T19:18:32+08:00
 draft = false
 katex = true
