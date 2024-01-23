@@ -115,12 +115,5 @@ df_result['close'].astype(float).rolling(window=100).mean().plot()
 ```
 
 
-
-
-    <Axes: >
-
-
-
-
     
 ![png](/img/finance_02_files/finance_02_10_1.png)

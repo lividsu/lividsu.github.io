@@ -97,7 +97,7 @@
     
   ],
   "articleBody": "!pip install baostock import baostock as bs import pandas as pd import matplotlib.pyplot as plt # login baostock lg = bs.login() print(f'error code {lg.error_code}') print(f'error msg {lg.error_msg}') # 分钟线指标：date,time,code,open,high,low,close,volume,amount,adjustflag # 周月线指标：date,code,open,high,low,close,volume,amount,adjustflag,turn,pctChg rs = bs.query_history_k_data_plus(\"sh.600000\", \"date,code,open,high,low,close,preclose,volume,amount,adjustflag,turn,tradestatus,pctChg,isST\", start_date='2022-07-01', end_date='2023-12-31', frequency=\"d\", adjustflag=\"3\") login success!\rerror code 0\rerror msg success\rdata_list = [] while (rs.error_code == '0') \u0026 rs.next(): # 获取一条记录，将记录合并在一起 data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) df_result.info() ",
-  "wordCount" : "242",
+  "wordCount" : "240",
   "inLanguage": "en",
   "datePublished": "2024-01-23T19:12:32+08:00",
   "dateModified": "2024-01-23T19:12:32+08:00",
@@ -271,9 +271,7 @@ PC(Price-to-Cash Flow Ratio) = 股票市值 / 现金流<br>
 </span></span><span style="display:flex;"><span>df_result[<span style="color:#e6db74">&#39;close&#39;</span>]<span style="color:#f92672">.</span>astype(float)<span style="color:#f92672">.</span>plot()
 </span></span><span style="display:flex;"><span>df_result[<span style="color:#e6db74">&#39;close&#39;</span>]<span style="color:#f92672">.</span>astype(float)<span style="color:#f92672">.</span>rolling(window<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>)<span style="color:#f92672">.</span>mean()<span style="color:#f92672">.</span>plot()
 </span></span><span style="display:flex;"><span>df_result[<span style="color:#e6db74">&#39;close&#39;</span>]<span style="color:#f92672">.</span>astype(float)<span style="color:#f92672">.</span>rolling(window<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)<span style="color:#f92672">.</span>mean()<span style="color:#f92672">.</span>plot()
-</span></span></code></pre></div><pre><code>&lt;Axes: &gt;
-</code></pre>
-<p><img loading="lazy" src="/img/finance_02_files/finance_02_10_1.png" alt="png"  />
+</span></span></code></pre></div><p><img loading="lazy" src="/img/finance_02_files/finance_02_10_1.png" alt="png"  />
 </p>
 
 
