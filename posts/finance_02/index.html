@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Datawhale-Quant 笔记02 - Python 读取股市数据 | Blogs of livid</title>
+<title>Datawhale-Quant 笔记02 - Python读取股市数据 | Blogs of livid</title>
 <meta name="keywords" content="">
 <meta name="description" content="!pip install baostock import baostock as bs import pandas as pd import matplotlib.pyplot as plt # login baostock lg = bs.login() print(f&#39;error code {lg.error_code}&#39;) print(f&#39;error msg {lg.error_msg}&#39;) # 分钟线指标：date,time,code,open,high,low,close,volume,amount,adjustflag # 周月线指标：date,code,open,high,low,close,volume,amount,adjustflag,turn,pctChg rs = bs.query_history_k_data_plus(&#34;sh.600000&#34;, &#34;date,code,open,high,low,close,preclose,volume,amount,adjustflag,turn,tradestatus,pctChg,isST&#34;, start_date=&#39;2022-07-01&#39;, end_date=&#39;2023-12-31&#39;, frequency=&#34;d&#34;, adjustflag=&#34;3&#34;) login success!error code 0error msg successdata_list = [] while (rs.error_code == &#39;0&#39;) &amp; rs.next(): # 获取一条记录，将记录合并在一起 data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) df_result.info() &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;RangeIndex: 367 entries, 0 to 366Data columns (total 14 columns):# Column Non-Null Count Dtype --- ------ -------------- ----- 0 date 367 non-null object1 code 367 non-null object2 open 367 non-null object3 high 367 non-null object4 low 367 non-null object5 close 367 non-null object6 preclose 367 non-null object7 volume 367 non-null object8 amount 367 non-null object9 adjustflag 367 non-null object10 turn 367 non-null object11 tradestatus 367 non-null object12 pctChg 367 non-null object13 isST 367 non-null objectdtypes: object(14)memory usage: 40.">
 <meta name="author" content="">
@@ -54,15 +54,15 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="Datawhale-Quant 笔记02 - Python 读取股市数据" />
+</noscript><meta property="og:title" content="Datawhale-Quant 笔记02 - Python读取股市数据" />
 <meta property="og:description" content="!pip install baostock import baostock as bs import pandas as pd import matplotlib.pyplot as plt # login baostock lg = bs.login() print(f&#39;error code {lg.error_code}&#39;) print(f&#39;error msg {lg.error_msg}&#39;) # 分钟线指标：date,time,code,open,high,low,close,volume,amount,adjustflag # 周月线指标：date,code,open,high,low,close,volume,amount,adjustflag,turn,pctChg rs = bs.query_history_k_data_plus(&#34;sh.600000&#34;, &#34;date,code,open,high,low,close,preclose,volume,amount,adjustflag,turn,tradestatus,pctChg,isST&#34;, start_date=&#39;2022-07-01&#39;, end_date=&#39;2023-12-31&#39;, frequency=&#34;d&#34;, adjustflag=&#34;3&#34;) login success!error code 0error msg successdata_list = [] while (rs.error_code == &#39;0&#39;) &amp; rs.next(): # 获取一条记录，将记录合并在一起 data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) df_result.info() &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;RangeIndex: 367 entries, 0 to 366Data columns (total 14 columns):# Column Non-Null Count Dtype --- ------ -------------- ----- 0 date 367 non-null object1 code 367 non-null object2 open 367 non-null object3 high 367 non-null object4 low 367 non-null object5 close 367 non-null object6 preclose 367 non-null object7 volume 367 non-null object8 amount 367 non-null object9 adjustflag 367 non-null object10 turn 367 non-null object11 tradestatus 367 non-null object12 pctChg 367 non-null object13 isST 367 non-null objectdtypes: object(14)memory usage: 40." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://lividsu.com/posts/finance_02/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-01-23T19:12:32+08:00" />
-<meta property="article:modified_time" content="2024-01-23T19:12:32+08:00" />
+<meta property="article:published_time" content="2024-01-23T19:38:11+08:00" />
+<meta property="article:modified_time" content="2024-01-23T19:38:11+08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Datawhale-Quant 笔记02 - Python 读取股市数据"/>
+<meta name="twitter:title" content="Datawhale-Quant 笔记02 - Python读取股市数据"/>
 <meta name="twitter:description" content="!pip install baostock import baostock as bs import pandas as pd import matplotlib.pyplot as plt # login baostock lg = bs.login() print(f&#39;error code {lg.error_code}&#39;) print(f&#39;error msg {lg.error_msg}&#39;) # 分钟线指标：date,time,code,open,high,low,close,volume,amount,adjustflag # 周月线指标：date,code,open,high,low,close,volume,amount,adjustflag,turn,pctChg rs = bs.query_history_k_data_plus(&#34;sh.600000&#34;, &#34;date,code,open,high,low,close,preclose,volume,amount,adjustflag,turn,tradestatus,pctChg,isST&#34;, start_date=&#39;2022-07-01&#39;, end_date=&#39;2023-12-31&#39;, frequency=&#34;d&#34;, adjustflag=&#34;3&#34;) login success!error code 0error msg successdata_list = [] while (rs.error_code == &#39;0&#39;) &amp; rs.next(): # 获取一条记录，将记录合并在一起 data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) df_result.info() &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;RangeIndex: 367 entries, 0 to 366Data columns (total 14 columns):# Column Non-Null Count Dtype --- ------ -------------- ----- 0 date 367 non-null object1 code 367 non-null object2 open 367 non-null object3 high 367 non-null object4 low 367 non-null object5 close 367 non-null object6 preclose 367 non-null object7 volume 367 non-null object8 amount 367 non-null object9 adjustflag 367 non-null object10 turn 367 non-null object11 tradestatus 367 non-null object12 pctChg 367 non-null object13 isST 367 non-null objectdtypes: object(14)memory usage: 40."/>
 
 
@@ -80,7 +80,7 @@
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "Datawhale-Quant 笔记02 - Python 读取股市数据",
+      "name": "Datawhale-Quant 笔记02 - Python读取股市数据",
       "item": "http://lividsu.com/posts/finance_02/"
     }
   ]
@@ -90,17 +90,17 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Datawhale-Quant 笔记02 - Python 读取股市数据",
-  "name": "Datawhale-Quant 笔记02 - Python 读取股市数据",
+  "headline": "Datawhale-Quant 笔记02 - Python读取股市数据",
+  "name": "Datawhale-Quant 笔记02 - Python读取股市数据",
   "description": "!pip install baostock import baostock as bs import pandas as pd import matplotlib.pyplot as plt # login baostock lg = bs.login() print(f\u0026#39;error code {lg.error_code}\u0026#39;) print(f\u0026#39;error msg {lg.error_msg}\u0026#39;) # 分钟线指标：date,time,code,open,high,low,close,volume,amount,adjustflag # 周月线指标：date,code,open,high,low,close,volume,amount,adjustflag,turn,pctChg rs = bs.query_history_k_data_plus(\u0026#34;sh.600000\u0026#34;, \u0026#34;date,code,open,high,low,close,preclose,volume,amount,adjustflag,turn,tradestatus,pctChg,isST\u0026#34;, start_date=\u0026#39;2022-07-01\u0026#39;, end_date=\u0026#39;2023-12-31\u0026#39;, frequency=\u0026#34;d\u0026#34;, adjustflag=\u0026#34;3\u0026#34;) login success!\rerror code 0\rerror msg success\rdata_list = [] while (rs.error_code == \u0026#39;0\u0026#39;) \u0026amp; rs.next(): # 获取一条记录，将记录合并在一起 data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) df_result.info() \u0026lt;class 'pandas.core.frame.DataFrame'\u0026gt;\rRangeIndex: 367 entries, 0 to 366\rData columns (total 14 columns):\r# Column Non-Null Count Dtype --- ------ -------------- ----- 0 date 367 non-null object\r1 code 367 non-null object\r2 open 367 non-null object\r3 high 367 non-null object\r4 low 367 non-null object\r5 close 367 non-null object\r6 preclose 367 non-null object\r7 volume 367 non-null object\r8 amount 367 non-null object\r9 adjustflag 367 non-null object\r10 turn 367 non-null object\r11 tradestatus 367 non-null object\r12 pctChg 367 non-null object\r13 isST 367 non-null object\rdtypes: object(14)\rmemory usage: 40.",
   "keywords": [
     
   ],
   "articleBody": "!pip install baostock import baostock as bs import pandas as pd import matplotlib.pyplot as plt # login baostock lg = bs.login() print(f'error code {lg.error_code}') print(f'error msg {lg.error_msg}') # 分钟线指标：date,time,code,open,high,low,close,volume,amount,adjustflag # 周月线指标：date,code,open,high,low,close,volume,amount,adjustflag,turn,pctChg rs = bs.query_history_k_data_plus(\"sh.600000\", \"date,code,open,high,low,close,preclose,volume,amount,adjustflag,turn,tradestatus,pctChg,isST\", start_date='2022-07-01', end_date='2023-12-31', frequency=\"d\", adjustflag=\"3\") login success!\rerror code 0\rerror msg success\rdata_list = [] while (rs.error_code == '0') \u0026 rs.next(): # 获取一条记录，将记录合并在一起 data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) df_result.info() ",
-  "wordCount" : "240",
+  "wordCount" : "242",
   "inLanguage": "en",
-  "datePublished": "2024-01-23T19:12:32+08:00",
-  "dateModified": "2024-01-23T19:12:32+08:00",
+  "datePublished": "2024-01-23T19:38:11+08:00",
+  "dateModified": "2024-01-23T19:38:11+08:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "http://lividsu.com/posts/finance_02/"
@@ -115,27 +115,6 @@
   }
 }
 </script>
-    
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
-
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
-
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
-
-<script defer>
-    document.addEventListener("DOMContentLoaded", function (){
-        renderMathInElement(document.body, {
-            delimiters: [
-                { left:"$$", right:"$$", display: true },
-                { left:"$", right:"$", display: false }
-            ]
-        });
-    });
-    </script>
-    
     
 </head>
 
@@ -188,9 +167,9 @@
   <header class="post-header">
     
     <h1 class="post-title entry-hint-parent">
-      Datawhale-Quant 笔记02 - Python 读取股市数据
+      Datawhale-Quant 笔记02 - Python读取股市数据
     </h1>
-    <div class="post-meta"><span title='2024-01-23 19:12:32 +0800 CST'>January 23, 2024</span>
+    <div class="post-meta"><span title='2024-01-23 19:38:11 +0800 CST'>January 23, 2024</span>
 
 </div>
   </header> 
@@ -271,9 +250,11 @@ PC(Price-to-Cash Flow Ratio) = 股票市值 / 现金流<br>
 </span></span><span style="display:flex;"><span>df_result[<span style="color:#e6db74">&#39;close&#39;</span>]<span style="color:#f92672">.</span>astype(float)<span style="color:#f92672">.</span>plot()
 </span></span><span style="display:flex;"><span>df_result[<span style="color:#e6db74">&#39;close&#39;</span>]<span style="color:#f92672">.</span>astype(float)<span style="color:#f92672">.</span>rolling(window<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>)<span style="color:#f92672">.</span>mean()<span style="color:#f92672">.</span>plot()
 </span></span><span style="display:flex;"><span>df_result[<span style="color:#e6db74">&#39;close&#39;</span>]<span style="color:#f92672">.</span>astype(float)<span style="color:#f92672">.</span>rolling(window<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)<span style="color:#f92672">.</span>mean()<span style="color:#f92672">.</span>plot()
-</span></span></code></pre></div><p><img loading="lazy" src="/img/finance_02_files/finance_02_10_1.png" alt="png"  />
+</span></span></code></pre></div><pre><code>&lt;Axes: &gt;
+</code></pre>
+<p><img loading="lazy" src="/img/finance_02_files/finance_02_10_1.png" alt="png"  />
 </p>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div>
 
   </div>
 
