@@ -1,10 +1,3 @@
-+++
-title = 'Datawhale-Quant 笔记02 - Python 读取股市数据'
-date = 2024-01-23T19:12:32+08:00
-draft = false
-katex = true
-+++
-
 ```python
 !pip install baostock
 ```
@@ -123,7 +116,7 @@ df_result['close'].astype(float).rolling(window=100).mean().plot()
 
 
     
-![png](/img/finance_02_files/finance_02_10_1.png)
+![png](finance_02_files/finance_02_10_1.png)
     
 
 
