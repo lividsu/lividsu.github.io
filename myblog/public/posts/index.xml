@@ -9,11 +9,11 @@
     <lastBuildDate>Tue, 23 Jan 2024 20:13:18 +0800</lastBuildDate>
     <atom:link href="http://lividsu.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>test</title>
+      <title>Datawhale-quant 笔记02 - Python读取股市数据</title>
       <link>http://lividsu.com/posts/finance_02/</link>
       <pubDate>Tue, 23 Jan 2024 20:13:18 +0800</pubDate>
       <guid>http://lividsu.com/posts/finance_02/</guid>
-      <description></description>
+      <description>!pip install baostock import baostock as bs import pandas as pd import matplotlib.pyplot as plt # login baostock lg = bs.login() print(f&amp;#39;error code {lg.error_code}&amp;#39;) print(f&amp;#39;error msg {lg.error_msg}&amp;#39;) # 分钟线指标：date,time,code,open,high,low,close,volume,amount,adjustflag # 周月线指标：date,code,open,high,low,close,volume,amount,adjustflag,turn,pctChg rs = bs.query_history_k_data_plus(&amp;#34;sh.600000&amp;#34;, &amp;#34;date,code,open,high,low,close,preclose,volume,amount,adjustflag,turn,tradestatus,pctChg,isST&amp;#34;, start_date=&amp;#39;2022-07-01&amp;#39;, end_date=&amp;#39;2023-12-31&amp;#39;, frequency=&amp;#34;d&amp;#34;, adjustflag=&amp;#34;3&amp;#34;) login success! error code 0 error msg success data_list = [] while (rs.error_code == &amp;#39;0&amp;#39;) &amp;amp; rs.next(): # 获取一条记录，将记录合并在一起 data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) df_result.info() &amp;lt;class &#39;pandas.core.frame.DataFrame&#39;&amp;gt; RangeIndex: 367 entries, 0 to 366 Data columns (total 14 columns): # Column Non-Null Count Dtype --- ------ -------------- ----- 0 date 367 non-null object 1 code 367 non-null object 2 open 367 non-null object 3 high 367 non-null object 4 low 367 non-null object 5 close 367 non-null object 6 preclose 367 non-null object 7 volume 367 non-null object 8 amount 367 non-null object 9 adjustflag 367 non-null object 10 turn 367 non-null object 11 tradestatus 367 non-null object 12 pctChg 367 non-null object 13 isST 367 non-null object dtypes: object(14) memory usage: 40.</description>
     </item>
     <item>
       <title>Datawhale-quant 笔记 - 金融市场基本概念</title>
