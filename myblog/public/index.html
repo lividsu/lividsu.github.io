@@ -128,6 +128,18 @@
 
 <article class="first-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Datawhale-quant 笔记03 - 量化选股策略浅尝试
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>import baostock as bs import pandas as pd import matplotlib.pyplot as plt import statsmodels.api as sm from sklearn.preprocessing import StandardScaler from sklearn.linear_model import LinearRegression from sklearn.model_selection import train_test_split def get_bs_df(code, list_para, start_date, end_date, frequency=&#39;d&#39;, adjustflag=&#39;3&#39;): para = &#39;,&#39;.join(list_para) rs = bs.query_history_k_data_plus(code,para, start_date=start_date, end_date=end_date, frequency=frequency, adjustflag=adjustflag) data_list = [] while (rs.error_code == &#39;0&#39;) &amp; rs.next(): data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) print(f&#39;get {len(df_result)} records!&#39;) return df_result def get_bs_profit_data(code, year, quarter): profit_list = [] rs_profit = bs....</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-01-24 14:56:03 +0800 CST'>January 24, 2024</span></footer>
+  <a class="entry-link" aria-label="post link to Datawhale-quant 笔记03 - 量化选股策略浅尝试" href="http://lividsu.com/posts/finance_03/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Datawhale-quant 笔记02 - Python读取股市数据
     </h2>
   </header>

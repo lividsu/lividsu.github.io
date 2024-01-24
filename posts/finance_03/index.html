@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Datawhale-quant 笔记03 - 量化选股策略浅尝试 | Blogs of livid</title>
+<meta name="keywords" content="">
+<meta name="description" content="import baostock as bs import pandas as pd import matplotlib.pyplot as plt import statsmodels.api as sm from sklearn.preprocessing import StandardScaler from sklearn.linear_model import LinearRegression from sklearn.model_selection import train_test_split def get_bs_df(code, list_para, start_date, end_date, frequency=&#39;d&#39;, adjustflag=&#39;3&#39;): para = &#39;,&#39;.join(list_para) rs = bs.query_history_k_data_plus(code,para, start_date=start_date, end_date=end_date, frequency=frequency, adjustflag=adjustflag) data_list = [] while (rs.error_code == &#39;0&#39;) &amp; rs.next(): data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) print(f&#39;get {len(df_result)} records!&#39;) return df_result def get_bs_profit_data(code, year, quarter): profit_list = [] rs_profit = bs.">
+<meta name="author" content="">
+<link rel="canonical" href="http://lividsu.com/posts/finance_03/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.53523c2db28d93bc990a2121b1604c7a4743f9baaa043629a46d5c131b30c9f5.css" integrity="sha256-U1I8LbKNk7yZCiEhsWBMekdD&#43;bqqBDYppG1cExswyfU=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://lividsu.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://lividsu.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://lividsu.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://lividsu.com/apple-touch-icon.png">
+<link rel="mask-icon" href="http://lividsu.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Datawhale-quant 笔记03 - 量化选股策略浅尝试" />
+<meta property="og:description" content="import baostock as bs import pandas as pd import matplotlib.pyplot as plt import statsmodels.api as sm from sklearn.preprocessing import StandardScaler from sklearn.linear_model import LinearRegression from sklearn.model_selection import train_test_split def get_bs_df(code, list_para, start_date, end_date, frequency=&#39;d&#39;, adjustflag=&#39;3&#39;): para = &#39;,&#39;.join(list_para) rs = bs.query_history_k_data_plus(code,para, start_date=start_date, end_date=end_date, frequency=frequency, adjustflag=adjustflag) data_list = [] while (rs.error_code == &#39;0&#39;) &amp; rs.next(): data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) print(f&#39;get {len(df_result)} records!&#39;) return df_result def get_bs_profit_data(code, year, quarter): profit_list = [] rs_profit = bs." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://lividsu.com/posts/finance_03/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-01-24T14:56:03+08:00" />
+<meta property="article:modified_time" content="2024-01-24T14:56:03+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Datawhale-quant 笔记03 - 量化选股策略浅尝试"/>
+<meta name="twitter:description" content="import baostock as bs import pandas as pd import matplotlib.pyplot as plt import statsmodels.api as sm from sklearn.preprocessing import StandardScaler from sklearn.linear_model import LinearRegression from sklearn.model_selection import train_test_split def get_bs_df(code, list_para, start_date, end_date, frequency=&#39;d&#39;, adjustflag=&#39;3&#39;): para = &#39;,&#39;.join(list_para) rs = bs.query_history_k_data_plus(code,para, start_date=start_date, end_date=end_date, frequency=frequency, adjustflag=adjustflag) data_list = [] while (rs.error_code == &#39;0&#39;) &amp; rs.next(): data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) print(f&#39;get {len(df_result)} records!&#39;) return df_result def get_bs_profit_data(code, year, quarter): profit_list = [] rs_profit = bs."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://lividsu.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Datawhale-quant 笔记03 - 量化选股策略浅尝试",
+      "item": "http://lividsu.com/posts/finance_03/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Datawhale-quant 笔记03 - 量化选股策略浅尝试",
+  "name": "Datawhale-quant 笔记03 - 量化选股策略浅尝试",
+  "description": "import baostock as bs import pandas as pd import matplotlib.pyplot as plt import statsmodels.api as sm from sklearn.preprocessing import StandardScaler from sklearn.linear_model import LinearRegression from sklearn.model_selection import train_test_split def get_bs_df(code, list_para, start_date, end_date, frequency=\u0026#39;d\u0026#39;, adjustflag=\u0026#39;3\u0026#39;): para = \u0026#39;,\u0026#39;.join(list_para) rs = bs.query_history_k_data_plus(code,para, start_date=start_date, end_date=end_date, frequency=frequency, adjustflag=adjustflag) data_list = [] while (rs.error_code == \u0026#39;0\u0026#39;) \u0026amp; rs.next(): data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) print(f\u0026#39;get {len(df_result)} records!\u0026#39;) return df_result def get_bs_profit_data(code, year, quarter): profit_list = [] rs_profit = bs.",
+  "keywords": [
+    
+  ],
+  "articleBody": "import baostock as bs import pandas as pd import matplotlib.pyplot as plt import statsmodels.api as sm from sklearn.preprocessing import StandardScaler from sklearn.linear_model import LinearRegression from sklearn.model_selection import train_test_split def get_bs_df(code, list_para, start_date, end_date, frequency='d', adjustflag='3'): para = ','.join(list_para) rs = bs.query_history_k_data_plus(code,para, start_date=start_date, end_date=end_date, frequency=frequency, adjustflag=adjustflag) data_list = [] while (rs.error_code == '0') \u0026 rs.next(): data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) print(f'get {len(df_result)} records!') return df_result def get_bs_profit_data(code, year, quarter): profit_list = [] rs_profit = bs.query_profit_data(code=code, year=year, quarter=quarter) while (rs_profit.error_code == '0') \u0026 rs_profit.next(): profit_list.append(rs_profit.get_row_data()) df_result = pd.DataFrame(profit_list, columns=rs_profit.fields) return df_result lg = bs.login() login success! code = 'sh.600000' list_para = ['date', 'code', 'close', 'volume', 'turn', 'peTTM', 'psTTM'] start_date = '2020-01-01' end_date = '2024-01-20' df_daily = get_bs_df(code, list_para, start_date, end_date) df_profit = get_bs_profit_data(code, '2020', '1') get 984 records! df_profit .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; } # get market value and earning df_daily['market_value'] = df_daily['close'].astype(float) * float(df_profit['liqaShare'].iloc[0]) df_daily['peTTM'] = df_daily['peTTM'].replace('', pd.NaT) df_daily['peTTM'] = df_daily['peTTM'].astype(float) df_daily['peTTM'] = df_daily['peTTM'].fillna((df_daily['peTTM'].shift() + df_daily['peTTM'].shift(-1)) / 2) df_daily['earning'] = df_daily['market_value'] / df_daily['peTTM'].astype(float) df_daily .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; } df_daily['market_value'].plot() df_daily['earning'].plot() neutralize the market value groups = df_daily.groupby('date') groups # 定义一个函数来执行市值中性化 def market_neutralize(group): # 提取市值和收益的数据列 market_cap = group['market_value'] returns = group['earning'] # 添加截距项 X = sm.add_constant(market_cap) # 执行线性回归，拟合收益率与市值的关系 model = sm.OLS(returns, X) results = model.fit() # 提取回归系数 beta = results.params['market_value'] # 计算市值中性化后的收益 neutralized_returns = returns - beta * market_cap # 将市值中性化后的收益添加到数据框中 group['neutralized_value'] = neutralized_returns return group neutralized_data = groups.apply(market_neutralize) C:\\Users\\livid\\AppData\\Local\\Temp\\ipykernel_26144\\1156377993.py:1: DeprecationWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning. neutralized_data = groups.apply(market_neutralize) neutralized_data .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; } neutralized_data['neutralized_value'].plot() def get_all_stock(day): rs = bs.query_all_stock(day=day) print('login respond error_msg:'+lg.error_msg) data_list = [] while (rs.error_code == '0') \u0026 rs.next(): data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) return df_result df_all_stock = get_all_stock('2023-06-30') df_all_stock login respond error_msg:success .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; } df_all_stock .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; } random_code_list = df_all_stock['code'].sample(n=100, random_state=42) random_code_list[:10] 4200 sz.300042 4523 sz.300382 5039 sz.300915 5271 sz.301176 4570 sz.300429 80 bj.833533 4793 sz.300657 5444 sz.399001 2275 sh.688195 4889 sz.300759 Name: code, dtype: object df_random_stock = pd.DataFrame() for code in random_code_list: df_query_profit = get_bs_profit_data(code, '2023', '1') df_random_stock = pd.concat([df_query_profit, df_random_stock]) df_random_stock .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; } for col in ['roeAvg', 'npMargin', 'gpMargin', 'epsTTM']: df_random_stock[col] = df_random_stock[col].replace('', float('nan')) df_random_stock[col] = df_random_stock[col].astype(float) df_random_stock[col] = df_random_stock[col].fillna((df_random_stock[col].shift() + df_random_stock[col].shift(-1)) / 2) df_random_stock[col] = df_random_stock[col].ffill().bfill() df_random_stock.info() ",
+  "wordCount" : "773",
+  "inLanguage": "en",
+  "datePublished": "2024-01-24T14:56:03+08:00",
+  "dateModified": "2024-01-24T14:56:03+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://lividsu.com/posts/finance_03/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Blogs of livid",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://lividsu.com/favicon.ico"
+    }
+  }
+}
+</script>
+    
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://lividsu.com/" accesskey="h" title="Blogs of livid (Alt + H)">Blogs of livid</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Datawhale-quant 笔记03 - 量化选股策略浅尝试
+    </h1>
+    <div class="post-meta"><span title='2024-01-24 14:56:03 +0800 CST'>January 24, 2024</span>
+
+</div>
+  </header> 
+  <div class="post-content"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> baostock <span style="color:#66d9ef">as</span> bs
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> statsmodels.api <span style="color:#66d9ef">as</span> sm
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.preprocessing <span style="color:#f92672">import</span> StandardScaler
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LinearRegression
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> train_test_split
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_bs_df</span>(code, list_para, start_date, end_date, frequency<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;d&#39;</span>, adjustflag<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;3&#39;</span>):
+</span></span><span style="display:flex;"><span>    para <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;,&#39;</span><span style="color:#f92672">.</span>join(list_para)
+</span></span><span style="display:flex;"><span>    rs <span style="color:#f92672">=</span> bs<span style="color:#f92672">.</span>query_history_k_data_plus(code,para,
+</span></span><span style="display:flex;"><span>    start_date<span style="color:#f92672">=</span>start_date, end_date<span style="color:#f92672">=</span>end_date,
+</span></span><span style="display:flex;"><span>    frequency<span style="color:#f92672">=</span>frequency, adjustflag<span style="color:#f92672">=</span>adjustflag)
+</span></span><span style="display:flex;"><span>    data_list <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (rs<span style="color:#f92672">.</span>error_code <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;0&#39;</span>) <span style="color:#f92672">&amp;</span> rs<span style="color:#f92672">.</span>next():
+</span></span><span style="display:flex;"><span>        data_list<span style="color:#f92672">.</span>append(rs<span style="color:#f92672">.</span>get_row_data())
+</span></span><span style="display:flex;"><span>    df_result <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(data_list, columns<span style="color:#f92672">=</span>rs<span style="color:#f92672">.</span>fields)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;get </span><span style="color:#e6db74">{</span>len(df_result)<span style="color:#e6db74">}</span><span style="color:#e6db74"> records!&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> df_result
+</span></span><span style="display:flex;"><span>    
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_bs_profit_data</span>(code, year, quarter):
+</span></span><span style="display:flex;"><span>    profit_list <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    rs_profit <span style="color:#f92672">=</span> bs<span style="color:#f92672">.</span>query_profit_data(code<span style="color:#f92672">=</span>code, year<span style="color:#f92672">=</span>year, quarter<span style="color:#f92672">=</span>quarter)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (rs_profit<span style="color:#f92672">.</span>error_code <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;0&#39;</span>) <span style="color:#f92672">&amp;</span> rs_profit<span style="color:#f92672">.</span>next():
+</span></span><span style="display:flex;"><span>        profit_list<span style="color:#f92672">.</span>append(rs_profit<span style="color:#f92672">.</span>get_row_data())
+</span></span><span style="display:flex;"><span>    df_result <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(profit_list, columns<span style="color:#f92672">=</span>rs_profit<span style="color:#f92672">.</span>fields)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> df_result
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>lg <span style="color:#f92672">=</span> bs<span style="color:#f92672">.</span>login()
+</span></span></code></pre></div><pre><code>login success!
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>code <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;sh.600000&#39;</span>
+</span></span><span style="display:flex;"><span>list_para <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;date&#39;</span>, <span style="color:#e6db74">&#39;code&#39;</span>, <span style="color:#e6db74">&#39;close&#39;</span>, <span style="color:#e6db74">&#39;volume&#39;</span>, <span style="color:#e6db74">&#39;turn&#39;</span>, <span style="color:#e6db74">&#39;peTTM&#39;</span>, <span style="color:#e6db74">&#39;psTTM&#39;</span>]
+</span></span><span style="display:flex;"><span>start_date <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;2020-01-01&#39;</span>
+</span></span><span style="display:flex;"><span>end_date <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;2024-01-20&#39;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df_daily <span style="color:#f92672">=</span> get_bs_df(code, list_para, start_date, end_date)
+</span></span><span style="display:flex;"><span>df_profit <span style="color:#f92672">=</span> get_bs_profit_data(code, <span style="color:#e6db74">&#39;2020&#39;</span>, <span style="color:#e6db74">&#39;1&#39;</span>)
+</span></span></code></pre></div><pre><code>get 984 records!
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df_profit
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># get market value and earning</span>
+</span></span><span style="display:flex;"><span>df_daily[<span style="color:#e6db74">&#39;market_value&#39;</span>] <span style="color:#f92672">=</span> df_daily[<span style="color:#e6db74">&#39;close&#39;</span>]<span style="color:#f92672">.</span>astype(float) <span style="color:#f92672">*</span> float(df_profit[<span style="color:#e6db74">&#39;liqaShare&#39;</span>]<span style="color:#f92672">.</span>iloc[<span style="color:#ae81ff">0</span>])
+</span></span><span style="display:flex;"><span>df_daily[<span style="color:#e6db74">&#39;peTTM&#39;</span>] <span style="color:#f92672">=</span> df_daily[<span style="color:#e6db74">&#39;peTTM&#39;</span>]<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#39;&#39;</span>, pd<span style="color:#f92672">.</span>NaT)
+</span></span><span style="display:flex;"><span>df_daily[<span style="color:#e6db74">&#39;peTTM&#39;</span>] <span style="color:#f92672">=</span> df_daily[<span style="color:#e6db74">&#39;peTTM&#39;</span>]<span style="color:#f92672">.</span>astype(float)
+</span></span><span style="display:flex;"><span>df_daily[<span style="color:#e6db74">&#39;peTTM&#39;</span>] <span style="color:#f92672">=</span> df_daily[<span style="color:#e6db74">&#39;peTTM&#39;</span>]<span style="color:#f92672">.</span>fillna((df_daily[<span style="color:#e6db74">&#39;peTTM&#39;</span>]<span style="color:#f92672">.</span>shift() <span style="color:#f92672">+</span> df_daily[<span style="color:#e6db74">&#39;peTTM&#39;</span>]<span style="color:#f92672">.</span>shift(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>df_daily[<span style="color:#e6db74">&#39;earning&#39;</span>] <span style="color:#f92672">=</span> df_daily[<span style="color:#e6db74">&#39;market_value&#39;</span>] <span style="color:#f92672">/</span> df_daily[<span style="color:#e6db74">&#39;peTTM&#39;</span>]<span style="color:#f92672">.</span>astype(float)
+</span></span><span style="display:flex;"><span>df_daily
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df_daily[<span style="color:#e6db74">&#39;market_value&#39;</span>]<span style="color:#f92672">.</span>plot()
+</span></span></code></pre></div><pre><code>&lt;Axes: &gt;
+</code></pre>
+<p><img loading="lazy" src="/img/finance_03_files/finance_03_9_1.png" alt="png"  />
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df_daily[<span style="color:#e6db74">&#39;earning&#39;</span>]<span style="color:#f92672">.</span>plot()
+</span></span></code></pre></div><pre><code>&lt;Axes: &gt;
+</code></pre>
+<p><img loading="lazy" src="/img/finance_03_files/finance_03_10_1.png" alt="png"  />
+</p>
+<h3 id="neutralize-the-market-value">neutralize the market value<a hidden class="anchor" aria-hidden="true" href="#neutralize-the-market-value">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>groups <span style="color:#f92672">=</span> df_daily<span style="color:#f92672">.</span>groupby(<span style="color:#e6db74">&#39;date&#39;</span>)
+</span></span><span style="display:flex;"><span>groups
+</span></span></code></pre></div><pre><code>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x00000248B0E74470&gt;
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 定义一个函数来执行市值中性化</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">market_neutralize</span>(group):
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 提取市值和收益的数据列</span>
+</span></span><span style="display:flex;"><span>    market_cap <span style="color:#f92672">=</span> group[<span style="color:#e6db74">&#39;market_value&#39;</span>]
+</span></span><span style="display:flex;"><span>    returns <span style="color:#f92672">=</span> group[<span style="color:#e6db74">&#39;earning&#39;</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 添加截距项</span>
+</span></span><span style="display:flex;"><span>    X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(market_cap)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 执行线性回归，拟合收益率与市值的关系</span>
+</span></span><span style="display:flex;"><span>    model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(returns, X)
+</span></span><span style="display:flex;"><span>    results <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 提取回归系数</span>
+</span></span><span style="display:flex;"><span>    beta <span style="color:#f92672">=</span> results<span style="color:#f92672">.</span>params[<span style="color:#e6db74">&#39;market_value&#39;</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 计算市值中性化后的收益</span>
+</span></span><span style="display:flex;"><span>    neutralized_returns <span style="color:#f92672">=</span> returns <span style="color:#f92672">-</span> beta <span style="color:#f92672">*</span> market_cap
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 将市值中性化后的收益添加到数据框中</span>
+</span></span><span style="display:flex;"><span>    group[<span style="color:#e6db74">&#39;neutralized_value&#39;</span>] <span style="color:#f92672">=</span> neutralized_returns
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> group
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>neutralized_data <span style="color:#f92672">=</span> groups<span style="color:#f92672">.</span>apply(market_neutralize)
+</span></span></code></pre></div><pre><code>C:\Users\livid\AppData\Local\Temp\ipykernel_26144\1156377993.py:1: DeprecationWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  neutralized_data = groups.apply(market_neutralize)
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>neutralized_data
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>neutralized_data[<span style="color:#e6db74">&#39;neutralized_value&#39;</span>]<span style="color:#f92672">.</span>plot()
+</span></span></code></pre></div><pre><code>&lt;Axes: xlabel='date,None'&gt;
+</code></pre>
+<p><img loading="lazy" src="/img/finance_03_files/finance_03_16_1.png" alt="png"  />
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_all_stock</span>(day):
+</span></span><span style="display:flex;"><span>    rs <span style="color:#f92672">=</span> bs<span style="color:#f92672">.</span>query_all_stock(day<span style="color:#f92672">=</span>day)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#39;login respond  error_msg:&#39;</span><span style="color:#f92672">+</span>lg<span style="color:#f92672">.</span>error_msg)
+</span></span><span style="display:flex;"><span>    data_list <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (rs<span style="color:#f92672">.</span>error_code <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;0&#39;</span>) <span style="color:#f92672">&amp;</span> rs<span style="color:#f92672">.</span>next():
+</span></span><span style="display:flex;"><span>        data_list<span style="color:#f92672">.</span>append(rs<span style="color:#f92672">.</span>get_row_data())
+</span></span><span style="display:flex;"><span>    df_result <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(data_list, columns<span style="color:#f92672">=</span>rs<span style="color:#f92672">.</span>fields)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> df_result
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df_all_stock <span style="color:#f92672">=</span> get_all_stock(<span style="color:#e6db74">&#39;2023-06-30&#39;</span>)
+</span></span><span style="display:flex;"><span>df_all_stock
+</span></span></code></pre></div><pre><code>login respond  error_msg:success
+</code></pre>
+<!-- raw HTML omitted -->
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df_all_stock
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>random_code_list <span style="color:#f92672">=</span> df_all_stock[<span style="color:#e6db74">&#39;code&#39;</span>]<span style="color:#f92672">.</span>sample(n<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">42</span>)
+</span></span><span style="display:flex;"><span>random_code_list[:<span style="color:#ae81ff">10</span>]
+</span></span></code></pre></div><pre><code>4200    sz.300042
+4523    sz.300382
+5039    sz.300915
+5271    sz.301176
+4570    sz.300429
+80      bj.833533
+4793    sz.300657
+5444    sz.399001
+2275    sh.688195
+4889    sz.300759
+Name: code, dtype: object
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df_random_stock <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> code <span style="color:#f92672">in</span> random_code_list:
+</span></span><span style="display:flex;"><span>    df_query_profit <span style="color:#f92672">=</span> get_bs_profit_data(code, <span style="color:#e6db74">&#39;2023&#39;</span>, <span style="color:#e6db74">&#39;1&#39;</span>)
+</span></span><span style="display:flex;"><span>    df_random_stock <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>concat([df_query_profit, df_random_stock])
+</span></span><span style="display:flex;"><span>df_random_stock
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> col <span style="color:#f92672">in</span> [<span style="color:#e6db74">&#39;roeAvg&#39;</span>, <span style="color:#e6db74">&#39;npMargin&#39;</span>, <span style="color:#e6db74">&#39;gpMargin&#39;</span>, <span style="color:#e6db74">&#39;epsTTM&#39;</span>]:
+</span></span><span style="display:flex;"><span>    df_random_stock[col] <span style="color:#f92672">=</span> df_random_stock[col]<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#39;&#39;</span>, float(<span style="color:#e6db74">&#39;nan&#39;</span>))
+</span></span><span style="display:flex;"><span>    df_random_stock[col] <span style="color:#f92672">=</span> df_random_stock[col]<span style="color:#f92672">.</span>astype(float)
+</span></span><span style="display:flex;"><span>    df_random_stock[col] <span style="color:#f92672">=</span> df_random_stock[col]<span style="color:#f92672">.</span>fillna((df_random_stock[col]<span style="color:#f92672">.</span>shift() <span style="color:#f92672">+</span> df_random_stock[col]<span style="color:#f92672">.</span>shift(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>    df_random_stock[col] <span style="color:#f92672">=</span> df_random_stock[col]<span style="color:#f92672">.</span>ffill()<span style="color:#f92672">.</span>bfill()
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df_random_stock<span style="color:#f92672">.</span>info()
+</span></span></code></pre></div><pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+Index: 82 entries, 0 to 0
+Data columns (total 11 columns):
+ #   Column      Non-Null Count  Dtype  
+---  ------      --------------  -----  
+ 0   code        82 non-null     object 
+ 1   pubDate     82 non-null     object 
+ 2   statDate    82 non-null     object 
+ 3   roeAvg      82 non-null     float64
+ 4   npMargin    82 non-null     float64
+ 5   gpMargin    82 non-null     float64
+ 6   netProfit   82 non-null     object 
+ 7   epsTTM      82 non-null     float64
+ 8   MBRevenue   82 non-null     object 
+ 9   totalShare  82 non-null     object 
+ 10  liqaShare   82 non-null     object 
+dtypes: float64(4), object(7)
+memory usage: 7.7+ KB
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>X_test
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>X <span style="color:#f92672">=</span> df_random_stock[[<span style="color:#e6db74">&#39;roeAvg&#39;</span>, <span style="color:#e6db74">&#39;npMargin&#39;</span>, <span style="color:#e6db74">&#39;gpMargin&#39;</span>]] <span style="color:#75715e"># 特征因子</span>
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> df_random_stock[<span style="color:#e6db74">&#39;epsTTM&#39;</span>] <span style="color:#75715e"># 目标变量</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test_split(X, y, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.2</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">42</span>)
+</span></span><span style="display:flex;"><span>scaler <span style="color:#f92672">=</span> StandardScaler()
+</span></span><span style="display:flex;"><span>X_train <span style="color:#f92672">=</span> scaler<span style="color:#f92672">.</span>fit_transform(X_train)
+</span></span><span style="display:flex;"><span>X_test <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(scaler<span style="color:#f92672">.</span>transform(X_test))
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> LinearRegression()
+</span></span><span style="display:flex;"><span>model<span style="color:#f92672">.</span>fit(X_train, y_train)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#39;Factor weights:&#39;</span>, model<span style="color:#f92672">.</span>coef_)
+</span></span><span style="display:flex;"><span>y_pred <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_test)
+</span></span><span style="display:flex;"><span>predicted_returns <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;Stock&#39;</span>: X_test<span style="color:#f92672">.</span>index,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;Predicted return&#39;</span>: y_pred
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>selected_stocks <span style="color:#f92672">=</span> predicted_returns[predicted_returns[<span style="color:#e6db74">&#39;Predicted return&#39;</span>] <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.1</span>]
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#39;Selected stocks:&#39;</span>, selected_stocks)
+</span></span></code></pre></div><pre><code>Factor weights: [0.5816784  0.2429101  0.27459906]
+Selected stocks:     Stock  Predicted return
+0       0          0.550256
+1       1          0.391729
+2       2          0.451719
+3       3          0.537539
+4       4          0.390086
+5       5          0.535062
+6       6          0.728756
+7       7          0.748340
+8       8          0.329657
+9       9          0.166179
+10     10          0.868106
+11     11          0.664897
+12     12          1.249381
+13     13          1.205148
+14     14          0.881246
+15     15          1.089587
+16     16          0.447703
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>y_pred
+</span></span></code></pre></div><pre><code>array([0.55025615, 0.39172872, 0.45171871, 0.5375395 , 0.39008628,
+       0.5350618 , 0.72875629, 0.74833969, 0.32965658, 0.16617911,
+       0.86810565, 0.66489708, 1.24938099, 1.20514782, 0.88124623,
+       1.08958659, 0.44770297])
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>pd<span style="color:#f92672">.</span>Series(y_test)
+</span></span></code></pre></div><pre><code>0    0.209028
+0    0.069248
+0    1.690382
+0    0.278836
+0    0.010221
+0    0.438135
+0    0.462125
+0    0.789891
+0    0.773333
+0    0.053418
+0   -0.210894
+0    0.056950
+0    2.125819
+0    5.535384
+0    0.398913
+0    0.309732
+0    0.421868
+Name: epsTTM, dtype: float64
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;y_pred&#39;</span>:y_pred, <span style="color:#e6db74">&#39;y_test&#39;</span>:y_test, <span style="color:#e6db74">&#39;diff %&#39;</span>:(y_pred<span style="color:#f92672">-</span>y_test)<span style="color:#f92672">/</span>y_test<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span>})
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><strong>ps</strong> 看得出线性回归这样预测的效果并不理想</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="http://lividsu.com/">Blogs of livid</a></span>
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
