@@ -6,8 +6,16 @@
     <description>Recent content on Blogs of livid</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 24 Jan 2024 14:56:03 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 27 May 2024 10:44:51 +0800</lastBuildDate>
     <atom:link href="http://lividsu.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Create Mysql on a new server with Docker</title>
+      <link>http://lividsu.com/posts/docker_create_mysql/</link>
+      <pubDate>Mon, 27 May 2024 10:44:51 +0800</pubDate>
+      <guid>http://lividsu.com/posts/docker_create_mysql/</guid>
+      <description>1. Log in with SSH 2. Install Docker
+# Update Package Lists: sudo apt update # Install Required Packages: sudo apt install -y apt-transport-https ca-certificates curl gnupg lsb-release # Add Docker’s Official GPG Key: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg # Set Up the Stable Repository: echo &amp;#34;deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&amp;#34; | sudo tee /etc/apt/sources.list.d/docker.list &amp;gt; /dev/null # Update Package Lists Again: sudo apt update # Install Docker Engine: sudo apt install -y docker-ce docker-ce-cli containerd.</description>
+    </item>
     <item>
       <title>Datawhale-quant 笔记03 - 量化选股策略浅尝试</title>
       <link>http://lividsu.com/posts/finance_03/</link>
