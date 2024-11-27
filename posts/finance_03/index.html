@@ -49,7 +49,7 @@ df_profit
 ">
 <meta name="author" content="">
 <link rel="canonical" href="http://lividsu.com/posts/finance_03/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.53523c2db28d93bc990a2121b1604c7a4743f9baaa043629a46d5c131b30c9f5.css" integrity="sha256-U1I8LbKNk7yZCiEhsWBMekdD&#43;bqqBDYppG1cExswyfU=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css" integrity="sha256-1vzSCk&#43;4bvpN&#43;sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://lividsu.com/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://lividsu.com/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://lividsu.com/favicon-32x32.png">
@@ -94,54 +94,17 @@ df_profit
         }
 
     </style>
-</noscript><meta property="og:title" content="Datawhale-quant 笔记03 - 量化选股策略浅尝试" />
-<meta property="og:description" content="import baostock as bs
-import pandas as pd
-import matplotlib.pyplot as plt
-import statsmodels.api as sm
-from sklearn.preprocessing import StandardScaler
-from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import train_test_split
-def get_bs_df(code, list_para, start_date, end_date, frequency=&#39;d&#39;, adjustflag=&#39;3&#39;):
-    para = &#39;,&#39;.join(list_para)
-    rs = bs.query_history_k_data_plus(code,para,
-    start_date=start_date, end_date=end_date,
-    frequency=frequency, adjustflag=adjustflag)
-    data_list = []
-    while (rs.error_code == &#39;0&#39;) &amp; rs.next():
-        data_list.append(rs.get_row_data())
-    df_result = pd.DataFrame(data_list, columns=rs.fields)
-    print(f&#39;get {len(df_result)} records!&#39;)
-    return df_result
-    
-def get_bs_profit_data(code, year, quarter):
-    profit_list = []
-    rs_profit = bs.query_profit_data(code=code, year=year, quarter=quarter)
-    while (rs_profit.error_code == &#39;0&#39;) &amp; rs_profit.next():
-        profit_list.append(rs_profit.get_row_data())
-    df_result = pd.DataFrame(profit_list, columns=rs_profit.fields)
-    return df_result
-lg = bs.login()
-login success!
-
-code = &#39;sh.600000&#39;
-list_para = [&#39;date&#39;, &#39;code&#39;, &#39;close&#39;, &#39;volume&#39;, &#39;turn&#39;, &#39;peTTM&#39;, &#39;psTTM&#39;]
-start_date = &#39;2020-01-01&#39;
-end_date = &#39;2024-01-20&#39;
-df_daily = get_bs_df(code, list_para, start_date, end_date)
-df_profit = get_bs_profit_data(code, &#39;2020&#39;, &#39;1&#39;)
-get 984 records!
-
-df_profit
-
-" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://lividsu.com/posts/finance_03/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-01-24T14:56:03+08:00" />
-<meta property="article:modified_time" content="2024-01-24T14:56:03+08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Datawhale-quant 笔记03 - 量化选股策略浅尝试"/>
+</noscript><meta property="og:url" content="http://lividsu.com/posts/finance_03/">
+  <meta property="og:site_name" content="Blogs of livid">
+  <meta property="og:title" content="Datawhale-quant 笔记03 - 量化选股策略浅尝试">
+  <meta property="og:description" content="import baostock as bs import pandas as pd import matplotlib.pyplot as plt import statsmodels.api as sm from sklearn.preprocessing import StandardScaler from sklearn.linear_model import LinearRegression from sklearn.model_selection import train_test_split def get_bs_df(code, list_para, start_date, end_date, frequency=&#39;d&#39;, adjustflag=&#39;3&#39;): para = &#39;,&#39;.join(list_para) rs = bs.query_history_k_data_plus(code,para, start_date=start_date, end_date=end_date, frequency=frequency, adjustflag=adjustflag) data_list = [] while (rs.error_code == &#39;0&#39;) &amp; rs.next(): data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) print(f&#39;get {len(df_result)} records!&#39;) return df_result def get_bs_profit_data(code, year, quarter): profit_list = [] rs_profit = bs.query_profit_data(code=code, year=year, quarter=quarter) while (rs_profit.error_code == &#39;0&#39;) &amp; rs_profit.next(): profit_list.append(rs_profit.get_row_data()) df_result = pd.DataFrame(profit_list, columns=rs_profit.fields) return df_result lg = bs.login() login success! code = &#39;sh.600000&#39; list_para = [&#39;date&#39;, &#39;code&#39;, &#39;close&#39;, &#39;volume&#39;, &#39;turn&#39;, &#39;peTTM&#39;, &#39;psTTM&#39;] start_date = &#39;2020-01-01&#39; end_date = &#39;2024-01-20&#39; df_daily = get_bs_df(code, list_para, start_date, end_date) df_profit = get_bs_profit_data(code, &#39;2020&#39;, &#39;1&#39;) get 984 records! df_profit ">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-01-24T14:56:03+08:00">
+    <meta property="article:modified_time" content="2024-01-24T14:56:03+08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Datawhale-quant 笔记03 - 量化选股策略浅尝试">
 <meta name="twitter:description" content="import baostock as bs
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -181,7 +144,7 @@ get 984 records!
 
 df_profit
 
-"/>
+">
 
 
 <script type="application/ld+json">
@@ -233,7 +196,6 @@ df_profit
   }
 }
 </script>
-    
 </head>
 
 <body class="" id="top">
@@ -273,8 +235,6 @@ df_profit
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -556,13 +516,11 @@ df_profit
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df_daily[<span style="color:#e6db74">&#39;market_value&#39;</span>]<span style="color:#f92672">.</span>plot()
 </span></span></code></pre></div><pre><code>&lt;Axes: &gt;
 </code></pre>
-<p><img loading="lazy" src="/img/finance_03_files/finance_03_9_1.png" alt="png"  />
-</p>
+<p><img alt="png" loading="lazy" src="/img/finance_03_files/finance_03_9_1.png"></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df_daily[<span style="color:#e6db74">&#39;earning&#39;</span>]<span style="color:#f92672">.</span>plot()
 </span></span></code></pre></div><pre><code>&lt;Axes: &gt;
 </code></pre>
-<p><img loading="lazy" src="/img/finance_03_files/finance_03_10_1.png" alt="png"  />
-</p>
+<p><img alt="png" loading="lazy" src="/img/finance_03_files/finance_03_10_1.png"></p>
 <h3 id="neutralize-the-market-value">neutralize the market value<a hidden class="anchor" aria-hidden="true" href="#neutralize-the-market-value">#</a></h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>groups <span style="color:#f92672">=</span> df_daily<span style="color:#f92672">.</span>groupby(<span style="color:#e6db74">&#39;date&#39;</span>)
 </span></span><span style="display:flex;"><span>groups
@@ -797,8 +755,7 @@ df_profit
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>neutralized_data[<span style="color:#e6db74">&#39;neutralized_value&#39;</span>]<span style="color:#f92672">.</span>plot()
 </span></span></code></pre></div><pre><code>&lt;Axes: xlabel='date,None'&gt;
 </code></pre>
-<p><img loading="lazy" src="/img/finance_03_files/finance_03_16_1.png" alt="png"  />
-</p>
+<p><img alt="png" loading="lazy" src="/img/finance_03_files/finance_03_16_1.png"></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_all_stock</span>(day):
 </span></span><span style="display:flex;"><span>    rs <span style="color:#f92672">=</span> bs<span style="color:#f92672">.</span>query_all_stock(day<span style="color:#f92672">=</span>day)
 </span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#39;login respond  error_msg:&#39;</span><span style="color:#f92672">+</span>lg<span style="color:#f92672">.</span>error_msg)
@@ -1570,8 +1527,13 @@ Name: epsTTM, dtype: float64
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="http://lividsu.com/">Blogs of livid</a></span>
-    
+        <span>&copy; 2024 <a href="http://lividsu.com/">Blogs of livid</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">

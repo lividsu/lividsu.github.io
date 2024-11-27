@@ -70,7 +70,7 @@ pctChg：涨跌幅，[(指定交易日的收盘价-指定交易日前收盘价)/
 isST：中国市场上被打上特殊标记（special treatment），表示公司近期出现了一些财务问题，可能会被限制交易">
 <meta name="author" content="">
 <link rel="canonical" href="http://lividsu.com/posts/finance_02/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.53523c2db28d93bc990a2121b1604c7a4743f9baaa043629a46d5c131b30c9f5.css" integrity="sha256-U1I8LbKNk7yZCiEhsWBMekdD&#43;bqqBDYppG1cExswyfU=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css" integrity="sha256-1vzSCk&#43;4bvpN&#43;sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://lividsu.com/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://lividsu.com/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://lividsu.com/favicon-32x32.png">
@@ -115,54 +115,10 @@ isST：中国市场上被打上特殊标记（special treatment），表示公�
         }
 
     </style>
-</noscript><meta property="og:title" content="Datawhale-quant 笔记02 - Python读取股市数据" />
-<meta property="og:description" content="!pip install baostock
-import baostock as bs
-import pandas as pd
-import matplotlib.pyplot as plt
-# login baostock
-lg = bs.login()
-print(f&#39;error code {lg.error_code}&#39;)
-print(f&#39;error msg {lg.error_msg}&#39;)
-# 分钟线指标：date,time,code,open,high,low,close,volume,amount,adjustflag
-# 周月线指标：date,code,open,high,low,close,volume,amount,adjustflag,turn,pctChg
-rs = bs.query_history_k_data_plus(&#34;sh.600000&#34;,
-    &#34;date,code,open,high,low,close,preclose,volume,amount,adjustflag,turn,tradestatus,pctChg,isST&#34;,
-    start_date=&#39;2022-07-01&#39;, end_date=&#39;2023-12-31&#39;,
-    frequency=&#34;d&#34;, adjustflag=&#34;3&#34;)
-login success!
-error code 0
-error msg success
-
-data_list = []
-while (rs.error_code == &#39;0&#39;) &amp; rs.next():
-    # 获取一条记录，将记录合并在一起
-    data_list.append(rs.get_row_data())
-df_result = pd.DataFrame(data_list, columns=rs.fields)
-df_result.info()
-&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 367 entries, 0 to 366
-Data columns (total 14 columns):
- #   Column       Non-Null Count  Dtype 
----  ------       --------------  ----- 
- 0   date         367 non-null    object
- 1   code         367 non-null    object
- 2   open         367 non-null    object
- 3   high         367 non-null    object
- 4   low          367 non-null    object
- 5   close        367 non-null    object
- 6   preclose     367 non-null    object
- 7   volume       367 non-null    object
- 8   amount       367 non-null    object
- 9   adjustflag   367 non-null    object
- 10  turn         367 non-null    object
- 11  tradestatus  367 non-null    object
- 12  pctChg       367 non-null    object
- 13  isST         367 non-null    object
-dtypes: object(14)
-memory usage: 40.3&#43; KB
-
-逐条解释
+</noscript><meta property="og:url" content="http://lividsu.com/posts/finance_02/">
+  <meta property="og:site_name" content="Blogs of livid">
+  <meta property="og:title" content="Datawhale-quant 笔记02 - Python读取股市数据">
+  <meta property="og:description" content="!pip install baostock import baostock as bs import pandas as pd import matplotlib.pyplot as plt # login baostock lg = bs.login() print(f&#39;error code {lg.error_code}&#39;) print(f&#39;error msg {lg.error_msg}&#39;) # 分钟线指标：date,time,code,open,high,low,close,volume,amount,adjustflag # 周月线指标：date,code,open,high,low,close,volume,amount,adjustflag,turn,pctChg rs = bs.query_history_k_data_plus(&#34;sh.600000&#34;, &#34;date,code,open,high,low,close,preclose,volume,amount,adjustflag,turn,tradestatus,pctChg,isST&#34;, start_date=&#39;2022-07-01&#39;, end_date=&#39;2023-12-31&#39;, frequency=&#34;d&#34;, adjustflag=&#34;3&#34;) login success! error code 0 error msg success data_list = [] while (rs.error_code == &#39;0&#39;) &amp; rs.next(): # 获取一条记录，将记录合并在一起 data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) df_result.info() &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt; RangeIndex: 367 entries, 0 to 366 Data columns (total 14 columns): # Column Non-Null Count Dtype --- ------ -------------- ----- 0 date 367 non-null object 1 code 367 non-null object 2 open 367 non-null object 3 high 367 non-null object 4 low 367 non-null object 5 close 367 non-null object 6 preclose 367 non-null object 7 volume 367 non-null object 8 amount 367 non-null object 9 adjustflag 367 non-null object 10 turn 367 non-null object 11 tradestatus 367 non-null object 12 pctChg 367 non-null object 13 isST 367 non-null object dtypes: object(14) memory usage: 40.3&#43; KB 逐条解释
 date: 交易所日期
 code：证券代码，sh.600000是上海浦东发展银行股份有限公司，差得2022-07-01收盘价为¥7.99，符合一致
 open：开盘价
@@ -170,20 +126,19 @@ high：最高价
 low：最低价
 close：收盘价
 preclose：前收盘价，即前一天收盘价用来参考
-volume：成交量（股）
-amount：成交额（人民币）
+volume：成交量（股） amount：成交额（人民币）
 adjustflag：复权状态(1：后复权， 2：前复权，3：不复权) 复权是为了消除如分红，拆细等操作的影响。
 turn：换手率， 也就是成交量在流通量里的占比。这里的换手率低于10%，属于偏低。
 tradestatus：交易状态(1：正常交易 0：停牌)
 pctChg：涨跌幅，[(指定交易日的收盘价-指定交易日前收盘价)/指定交易日前收盘价]*100%
-isST：中国市场上被打上特殊标记（special treatment），表示公司近期出现了一些财务问题，可能会被限制交易" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://lividsu.com/posts/finance_02/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-01-23T20:13:18+08:00" />
-<meta property="article:modified_time" content="2024-01-23T20:13:18+08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Datawhale-quant 笔记02 - Python读取股市数据"/>
+isST：中国市场上被打上特殊标记（special treatment），表示公司近期出现了一些财务问题，可能会被限制交易">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-01-23T20:13:18+08:00">
+    <meta property="article:modified_time" content="2024-01-23T20:13:18+08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Datawhale-quant 笔记02 - Python读取股市数据">
 <meta name="twitter:description" content="!pip install baostock
 import baostock as bs
 import pandas as pd
@@ -244,7 +199,7 @@ adjustflag：复权状态(1：后复权， 2：前复权，3：不复权) 复权
 turn：换手率， 也就是成交量在流通量里的占比。这里的换手率低于10%，属于偏低。
 tradestatus：交易状态(1：正常交易 0：停牌)
 pctChg：涨跌幅，[(指定交易日的收盘价-指定交易日前收盘价)/指定交易日前收盘价]*100%
-isST：中国市场上被打上特殊标记（special treatment），表示公司近期出现了一些财务问题，可能会被限制交易"/>
+isST：中国市场上被打上特殊标记（special treatment），表示公司近期出现了一些财务问题，可能会被限制交易">
 
 
 <script type="application/ld+json">
@@ -296,7 +251,6 @@ isST：中国市场上被打上特殊标记（special treatment），表示公�
   }
 }
 </script>
-    
 </head>
 
 <body class="" id="top">
@@ -336,8 +290,6 @@ isST：中国市场上被打上特殊标记（special treatment），表示公�
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -435,8 +387,7 @@ PC(Price-to-Cash Flow Ratio) = 股票市值 / 现金流<br>
 </span></span><span style="display:flex;"><span>df_result[<span style="color:#e6db74">&#39;close&#39;</span>]<span style="color:#f92672">.</span>astype(float)<span style="color:#f92672">.</span>rolling(window<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)<span style="color:#f92672">.</span>mean()<span style="color:#f92672">.</span>plot()
 </span></span></code></pre></div><pre><code>&lt;Axes: &gt;
 </code></pre>
-<p><img loading="lazy" src="/img/finance_02_files/finance_02_10_1.png" alt="png"  />
-</p>
+<p><img alt="png" loading="lazy" src="/img/finance_02_files/finance_02_10_1.png"></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div>
 
   </div>
@@ -449,8 +400,13 @@ PC(Price-to-Cash Flow Ratio) = 股票市值 / 现金流<br>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="http://lividsu.com/">Blogs of livid</a></span>
-    
+        <span>&copy; 2024 <a href="http://lividsu.com/">Blogs of livid</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
