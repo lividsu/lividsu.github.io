@@ -2,55 +2,244 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Blogs of livid</title>
-    <link>http://lividsu.com/posts/</link>
+    <link>http://localhost:1313/posts/</link>
     <description>Recent content in Posts on Blogs of livid</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 May 2024 10:44:51 +0800</lastBuildDate>
-    <atom:link href="http://lividsu.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 27 Nov 2024 16:01:55 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2b2c</title>
+      <link>http://localhost:1313/posts/2b2c/</link>
+      <pubDate>Wed, 27 Nov 2024 16:01:55 +0800</pubDate>
+      <guid>http://localhost:1313/posts/2b2c/</guid>
+      <description>&lt;h1 id=&#34;2b-2c&#34;&gt;2B, 2C&lt;/h1&gt;
+&lt;p&gt;一个有趣的事实是，2B和2C两种生意之间的区别似乎越来越小了。&lt;/p&gt;
+&lt;p&gt;在几十年前，这是无法想象的事情。试想在以前一个B2B的业务是：假如我是一家面粉公司，&lt;/p&gt;
+&lt;p&gt;**在寻求客户方面：**我需要靠人去直接拜访，与关键决策者建立人与人之间的关系。&lt;/p&gt;
+&lt;p&gt;**在信息沟通方面：**我依赖电话和书面信函&lt;/p&gt;
+&lt;p&gt;**在客户管理方面：**我需要尽可能花心思来维持好的关系，对每个前来询盘的客户我都要花心思介绍，报价，招待。&lt;/p&gt;
+&lt;p&gt;**在交易手段方面：**我依托银行来汇款支付&lt;/p&gt;
+&lt;p&gt;而对以前的一个B2C的业务，假如我是一家面包店：&lt;/p&gt;
+&lt;p&gt;**在寻求客户方面：**我等待街上的自然流量，邻里间的口口相传&lt;/p&gt;
+&lt;p&gt;**在信息沟通方面：**我只需要面对面的沟通&lt;/p&gt;
+&lt;p&gt;**在客户管理方面：**我几乎不需要客户管理&lt;/p&gt;
+&lt;p&gt;**在交易手段方面：**我依托银行来汇款支付&lt;/p&gt;
+&lt;p&gt;二者区别就像是生物里的K/R策略一样，2B像大象这种K策略一样，客户数量少，但是优质客户可以稳定获得源源不断的周期性订单，2C则像老鼠这种R策略，追求大量的用户，尽管单个客户带来的利润不高。&lt;/p&gt;
+&lt;p&gt;但是随着技术和环境的变化，两种生意的区别正在越来越小。二者都开始借助平台作为流量来源之一（1688 vs 淘宝），沟通方式也并无太大区别。借助AI后，都可以实现非常细致的用户管理，因为对于算法来说，200个B端的用户和20W个C端的用户并没有什么本质区别。交易手段也同样统一成了线上支付。&lt;/p&gt;
+&lt;p&gt;原来的大象也可以广撒网，利用互联网主动接触海量的潜在用户。原来的老鼠也可以利用AI，高效的实现在人工时代很昂贵的精细客户管理，双方都向彼此靠了一步。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Create Mysql on a new server with Docker</title>
-      <link>http://lividsu.com/posts/docker_create_mysql/</link>
+      <link>http://localhost:1313/posts/docker_create_mysql/</link>
       <pubDate>Mon, 27 May 2024 10:44:51 +0800</pubDate>
-      <guid>http://lividsu.com/posts/docker_create_mysql/</guid>
-      <description>1. Log in with SSH 2. Install Docker
-# Update Package Lists: sudo apt update # Install Required Packages: sudo apt install -y apt-transport-https ca-certificates curl gnupg lsb-release # Add Docker’s Official GPG Key: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg # Set Up the Stable Repository: echo &amp;#34;deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&amp;#34; | sudo tee /etc/apt/sources.list.d/docker.list &amp;gt; /dev/null # Update Package Lists Again: sudo apt update # Install Docker Engine: sudo apt install -y docker-ce docker-ce-cli containerd.</description>
+      <guid>http://localhost:1313/posts/docker_create_mysql/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;1. Log in with SSH&lt;/strong&gt;
+&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/img/docker_create_mysql/01.png&#34; alt=&#34;png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. Install Docker&lt;/strong&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# Update Package Lists:
+sudo apt update
+
+# Install Required Packages:
+sudo apt install -y apt-transport-https ca-certificates curl gnupg lsb-release
+
+# Add Docker’s Official GPG Key:
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+# Set Up the Stable Repository:
+echo &amp;#34;deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&amp;#34; | sudo tee /etc/apt/sources.list.d/docker.list &amp;gt; /dev/null
+
+# Update Package Lists Again:
+sudo apt update
+
+# Install Docker Engine:
+sudo apt install -y docker-ce docker-ce-cli containerd.io
+
+# Verify Docker Installation:
+sudo docker --version
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/img/docker_create_mysql/02.png&#34; alt=&#34;png&#34;  /&gt;
+&lt;/p&gt;</description>
     </item>
     <item>
       <title>Datawhale-quant 笔记03 - 量化选股策略浅尝试</title>
-      <link>http://lividsu.com/posts/finance_03/</link>
+      <link>http://localhost:1313/posts/finance_03/</link>
       <pubDate>Wed, 24 Jan 2024 14:56:03 +0800</pubDate>
-      <guid>http://lividsu.com/posts/finance_03/</guid>
-      <description>import baostock as bs import pandas as pd import matplotlib.pyplot as plt import statsmodels.api as sm from sklearn.preprocessing import StandardScaler from sklearn.linear_model import LinearRegression from sklearn.model_selection import train_test_split def get_bs_df(code, list_para, start_date, end_date, frequency=&amp;#39;d&amp;#39;, adjustflag=&amp;#39;3&amp;#39;): para = &amp;#39;,&amp;#39;.join(list_para) rs = bs.query_history_k_data_plus(code,para, start_date=start_date, end_date=end_date, frequency=frequency, adjustflag=adjustflag) data_list = [] while (rs.error_code == &amp;#39;0&amp;#39;) &amp;amp; rs.next(): data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) print(f&amp;#39;get {len(df_result)} records!&amp;#39;) return df_result def get_bs_profit_data(code, year, quarter): profit_list = [] rs_profit = bs.</description>
+      <guid>http://localhost:1313/posts/finance_03/</guid>
+      <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; baostock &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; bs
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; pandas &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; pd
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; matplotlib.pyplot &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; plt
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; statsmodels.api &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; sm
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; sklearn.preprocessing &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; StandardScaler
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; sklearn.linear_model &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; LinearRegression
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; sklearn.model_selection &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; train_test_split
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;get_bs_df&lt;/span&gt;(code, list_para, start_date, end_date, frequency&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;d&amp;#39;&lt;/span&gt;, adjustflag&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;3&amp;#39;&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    para &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;join(list_para)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    rs &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; bs&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;query_history_k_data_plus(code,para,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    start_date&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;start_date, end_date&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;end_date,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    frequency&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;frequency, adjustflag&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;adjustflag)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    data_list &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; []
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; (rs&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;error_code &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt; rs&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;next():
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        data_list&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;append(rs&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get_row_data())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    df_result &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; pd&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;DataFrame(data_list, columns&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;rs&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;fields)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    print(&lt;span style=&#34;color:#e6db74&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;get &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{&lt;/span&gt;len(df_result)&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; records!&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; df_result
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;get_bs_profit_data&lt;/span&gt;(code, year, quarter):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    profit_list &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; []
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    rs_profit &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; bs&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;query_profit_data(code&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;code, year&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;year, quarter&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;quarter)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; (rs_profit&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;error_code &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt; rs_profit&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;next():
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        profit_list&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;append(rs_profit&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get_row_data())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    df_result &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; pd&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;DataFrame(profit_list, columns&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;rs_profit&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;fields)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; df_result
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;lg &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; bs&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;login()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre&gt;&lt;code&gt;login success!
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;code &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;sh.600000&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;list_para &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;date&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;code&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;close&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;volume&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;turn&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;peTTM&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;psTTM&amp;#39;&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;start_date &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2020-01-01&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;end_date &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2024-01-20&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;df_daily &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; get_bs_df(code, list_para, start_date, end_date)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;df_profit &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; get_bs_profit_data(code, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2020&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;1&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre&gt;&lt;code&gt;get 984 records!
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;df_profit
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;pre&gt;&lt;code&gt;.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Datawhale-quant 笔记02 - Python读取股市数据</title>
-      <link>http://lividsu.com/posts/finance_02/</link>
+      <link>http://localhost:1313/posts/finance_02/</link>
       <pubDate>Tue, 23 Jan 2024 20:13:18 +0800</pubDate>
-      <guid>http://lividsu.com/posts/finance_02/</guid>
-      <description>!pip install baostock import baostock as bs import pandas as pd import matplotlib.pyplot as plt # login baostock lg = bs.login() print(f&amp;#39;error code {lg.error_code}&amp;#39;) print(f&amp;#39;error msg {lg.error_msg}&amp;#39;) # 分钟线指标：date,time,code,open,high,low,close,volume,amount,adjustflag # 周月线指标：date,code,open,high,low,close,volume,amount,adjustflag,turn,pctChg rs = bs.query_history_k_data_plus(&amp;#34;sh.600000&amp;#34;, &amp;#34;date,code,open,high,low,close,preclose,volume,amount,adjustflag,turn,tradestatus,pctChg,isST&amp;#34;, start_date=&amp;#39;2022-07-01&amp;#39;, end_date=&amp;#39;2023-12-31&amp;#39;, frequency=&amp;#34;d&amp;#34;, adjustflag=&amp;#34;3&amp;#34;) login success! error code 0 error msg success data_list = [] while (rs.error_code == &amp;#39;0&amp;#39;) &amp;amp; rs.next(): # 获取一条记录，将记录合并在一起 data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) df_result.info() &amp;lt;class &#39;pandas.core.frame.DataFrame&#39;&amp;gt; RangeIndex: 367 entries, 0 to 366 Data columns (total 14 columns): # Column Non-Null Count Dtype --- ------ -------------- ----- 0 date 367 non-null object 1 code 367 non-null object 2 open 367 non-null object 3 high 367 non-null object 4 low 367 non-null object 5 close 367 non-null object 6 preclose 367 non-null object 7 volume 367 non-null object 8 amount 367 non-null object 9 adjustflag 367 non-null object 10 turn 367 non-null object 11 tradestatus 367 non-null object 12 pctChg 367 non-null object 13 isST 367 non-null object dtypes: object(14) memory usage: 40.</description>
+      <guid>http://localhost:1313/posts/finance_02/</guid>
+      <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;!&lt;/span&gt;pip install baostock
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; baostock &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; bs
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; pandas &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; pd
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; matplotlib.pyplot &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; plt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# login baostock&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;lg &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; bs&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;login()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;print(&lt;span style=&#34;color:#e6db74&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;error code &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{&lt;/span&gt;lg&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;error_code&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;print(&lt;span style=&#34;color:#e6db74&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;error msg &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{&lt;/span&gt;lg&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;error_msg&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 分钟线指标：date,time,code,open,high,low,close,volume,amount,adjustflag&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 周月线指标：date,code,open,high,low,close,volume,amount,adjustflag,turn,pctChg&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;rs &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; bs&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;query_history_k_data_plus(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;sh.600000&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;date,code,open,high,low,close,preclose,volume,amount,adjustflag,turn,tradestatus,pctChg,isST&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    start_date&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2022-07-01&amp;#39;&lt;/span&gt;, end_date&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2023-12-31&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    frequency&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;d&amp;#34;&lt;/span&gt;, adjustflag&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;3&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre&gt;&lt;code&gt;login success!
+error code 0
+error msg success
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;data_list &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; []
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; (rs&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;error_code &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt; rs&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;next():
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# 获取一条记录，将记录合并在一起&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    data_list&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;append(rs&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get_row_data())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;df_result &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; pd&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;DataFrame(data_list, columns&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;rs&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;fields)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;df_result&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;info()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;class &#39;pandas.core.frame.DataFrame&#39;&amp;gt;
+RangeIndex: 367 entries, 0 to 366
+Data columns (total 14 columns):
+ #   Column       Non-Null Count  Dtype 
+---  ------       --------------  ----- 
+ 0   date         367 non-null    object
+ 1   code         367 non-null    object
+ 2   open         367 non-null    object
+ 3   high         367 non-null    object
+ 4   low          367 non-null    object
+ 5   close        367 non-null    object
+ 6   preclose     367 non-null    object
+ 7   volume       367 non-null    object
+ 8   amount       367 non-null    object
+ 9   adjustflag   367 non-null    object
+ 10  turn         367 non-null    object
+ 11  tradestatus  367 non-null    object
+ 12  pctChg       367 non-null    object
+ 13  isST         367 non-null    object
+dtypes: object(14)
+memory usage: 40.3+ KB
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;逐条解释&lt;/strong&gt;&lt;br&gt;
+date: 交易所日期&lt;br&gt;
+code：证券代码，sh.600000是上海浦东发展银行股份有限公司，差得2022-07-01收盘价为¥7.99，符合一致&lt;br&gt;
+open：开盘价&lt;br&gt;
+high：最高价&lt;br&gt;
+low：最低价&lt;br&gt;
+close：收盘价&lt;br&gt;
+preclose：前收盘价，即前一天收盘价用来参考&lt;br&gt;
+volume：成交量（股）
+amount：成交额（人民币）&lt;br&gt;
+adjustflag：复权状态(1：后复权， 2：前复权，3：不复权) 复权是为了消除如分红，拆细等操作的影响。&lt;br&gt;
+turn：换手率， 也就是成交量在流通量里的占比。这里的换手率低于10%，属于偏低。&lt;br&gt;
+tradestatus：交易状态(1：正常交易 0：停牌)&lt;br&gt;
+pctChg：涨跌幅，[(指定交易日的收盘价-指定交易日前收盘价)/指定交易日前收盘价]*100%&lt;br&gt;
+isST：中国市场上被打上特殊标记（special treatment），表示公司近期出现了一些财务问题，可能会被限制交易&lt;/p&gt;</description>
     </item>
     <item>
       <title>Datawhale-quant 笔记 - 金融市场基本概念</title>
-      <link>http://lividsu.com/posts/finance_01/</link>
+      <link>http://localhost:1313/posts/finance_01/</link>
       <pubDate>Sun, 21 Jan 2024 19:18:32 +0800</pubDate>
-      <guid>http://lividsu.com/posts/finance_01/</guid>
-      <description>贴现率 Discount Rate 所有今天的钱都可以用来投资，进行复利效应，因此今天的100元在未来的价值会高于100元，反过来说也就是未来的100元在今天的价值会低于100元。并且因为风险的存在，这个价值会进一步打折扣。 而用来量化未来的钱在今天的价值，这个概念也就是贴现率。
-假如贴现率是11%，我在2年后可以得到100元，那么这100元在今天的价值就是$$ \frac{100} {(1 + 11\%)^{2}}=81.16$$
-除了直接用作将未来现金折算成当前价值以外，贴现率还常常用来反映投资的风险。在考虑未来不确定性较大的现金流时，会使用比较大的贴现率，用来补偿更高的风险。
-投资的本质 投资是为了获得可能但并不确定的未来值（Future value）而作出牺牲确定的现值（Present value）的行为。（William F.Sharpe，1990年获得诺贝尔经济学奖）
-金融资产 实物资产：取决于该社会经济的生产能力，为经济创造净利润，如土地、建筑物、机器以及可用于生产产品和提供服务的知识。 金融资产：对实物资产的索取权 金融资产主要分为四大类：
-固定收益型或债务型证券 普通股或权益型证券 基金 衍生产品（期货、期权、互换） 宏观经济的一些指标 广义货币供应量 货币可以分为三个层次：
-M0：流通中的货币，即基础货币。 M0的构成是公众手里的现金（微信支付宝里的就不算）和商业银行放在中央银行的准备金。
-小明家里放了200， 手里拿着100，支付宝里有50. 那小明的M0是200+100=300. M1：狭义货币供应量，M0+企业货期存款+机关团体存款+农村存款+个人信用卡存款 M1包括了M0和那部分能够快速转化为现金用于购买商品和服务的存款，如支票存款和部分可随时取用的储蓄存款。M1表现了经济体中较为活跃的货币，主要用于日常的交易活动。
-除了上面的300元现金，小明还有500元在支票账户中，能随时支取。这500元加上他的300元现金，再加上50元支付宝，合计850元为小明的M1。
-M2：广义货币供应量，M1+城乡居民储蓄存款+企业定期存款+外币存款+信托类存款 M2是范围更广的货币供应层次，除了包括M1之外，还加上了一些不那么容易立刻转换为现金的存款，比如定期存款，储蓄存款，和其他一些近似“货币”的金融资产（如货币市场基金）。M2能够提供对经济流动性与未来通货膨胀压力的更全面的了解。 如果小明除了上述的600元M1，还在银行有一个2000元的定期存款和1000元在货币市场基金，则这3000元加上600元M1，总共3600元就是小明的M2。
-CPI（消费者价格指数 Consumer Price Index） 反映居民消费中物价是否高低（通胀水平），从消费者角度来考虑物价水平。 CPI能够准确表现消费价格变动趋势和走向，CPI上升1%就意味着居民生活成本提高1%。通常，当CPI&amp;gt;3%的增幅时会被认定为进入了通货膨胀区间。
-PPI（生产者价格指数 Producer Price Index） 反映原材料物价水平，从生产者角度考虑物价水平。通常来说PPI的上涨会转移到CPI上。 PPI分类可以按照二分法分为生产资料和生活资料，其中前者占比较大约70%，因此PPI更能反映生产资料价格状态。此外，由于价格指数具有粘性，PPI通常落后于宏观经济，因为经济好转后产生需求，才能带动上游生产，这时才可以反映到PPI中，但是经济的真正好转通常需要等待一定时间。
-PPI通常用来衡量经济是否景气，一般PPI在3％以下，认为经济不景气，再4％到7％左右，认为经济稳定繁荣，但到8％和9%以上，就表明经济可能过热。
-PMI（采购经理人指数 Purchasing Managers&amp;rsquo; Index） 采购经理人指数PMI，包括制造业和非制造业领域，包含生产、订货、库存等多个环节，能够反映经济总体变化趋势，及企业经营活动多个侧面的运行情况。该指标通过公司采购经理人在第一时间获取当月数据，快速及时反映市场动态，因而成为非常重要的先行指标。
-PMI 取值范围在 0 至 100% 之间，50% 为扩张与收缩的临界点，50%是根据新订单、生产指数、从业人员指数、供应商配送时间和原材料库存等5个扩散指数中的扩张和收缩比例汇总计算得到。高于50%，表示经济活动比上月有所扩张；低于50%，表示经济活动比上月有所收缩。PMI与临界点的距离，表示扩张和收缩的程度。在实际应用中，可以通过 PMI 运行走势监测宏观经济变化情况：
-扩张加速：PMI 从 50% 上升到 100%，表明经济运行中的扩张成分多于收缩成分，扩张成分在增加，收缩成分在减少，经济处于扩张区间。 扩张减速：PMI 从 100% 下降到 50%，表明经济运行中的扩张成分多于收缩成分，但扩张成分在减少，收缩成分在增加，经济仍处于扩张区间。 收缩加速：PMI 从 50% 下降到 0，表明经济运行中的收缩成分多于扩张成分，扩张成分在减少，收缩成分在增加，经济处于收缩区间。 收缩减速：PMI 从 0 上升到 50%，表明经济运行中的收缩成分多于扩张成分，但扩张成分在增加，收缩成分在减少，经济仍处于收缩区间。 </description>
+      <guid>http://localhost:1313/posts/finance_01/</guid>
+      <description>&lt;h3 id=&#34;贴现率-discount-rate&#34;&gt;贴现率 Discount Rate&lt;/h3&gt;
+&lt;p&gt;所有今天的钱都可以用来投资，进行复利效应，因此今天的100元在未来的价值会高于100元，反过来说也就是未来的100元在今天的价值会低于100元。并且因为风险的存在，这个价值会进一步打折扣。
+而用来量化未来的钱在今天的价值，这个概念也就是&lt;strong&gt;贴现率&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;假如贴现率是11%，我在2年后可以得到100元，那么这100元在今天的价值就是$$ \frac{100} {(1 + 11\%)^{2}}=81.16$$&lt;/p&gt;
+&lt;p&gt;除了直接用作将未来现金折算成当前价值以外，贴现率还常常用来反映投资的风险。在考虑未来不确定性较大的现金流时，会使用比较大的贴现率，用来补偿更高的风险。&lt;/p&gt;
+&lt;h3 id=&#34;投资的本质&#34;&gt;投资的本质&lt;/h3&gt;
+&lt;p&gt;投资是为了获得可能但并不确定的未来值（Future value）而作出牺牲确定的现值（Present value）的行为。（William F.Sharpe，1990年获得诺贝尔经济学奖）&lt;/p&gt;
+&lt;h3 id=&#34;金融资产&#34;&gt;金融资产&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;实物资产：取决于该社会经济的生产能力，为经济创造净利润，如土地、建筑物、机器以及可用于生产产品和提供服务的知识。&lt;/li&gt;
+&lt;li&gt;金融资产：对实物资产的索取权&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;金融资产主要分为四大类：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;固定收益型或债务型证券&lt;/li&gt;
+&lt;li&gt;普通股或权益型证券&lt;/li&gt;
+&lt;li&gt;基金&lt;/li&gt;
+&lt;li&gt;衍生产品（期货、期权、互换）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;宏观经济的一些指标&#34;&gt;宏观经济的一些指标&lt;/h2&gt;
+&lt;h3 id=&#34;广义货币供应量&#34;&gt;广义货币供应量&lt;/h3&gt;
+&lt;p&gt;货币可以分为三个层次：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;M0：流通中的货币&lt;/strong&gt;，即基础货币。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;M0的构成是公众手里的现金（微信支付宝里的就不算）和商业银行放在中央银行的准备金。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;小明家里放了200， 手里拿着100，支付宝里有50. 那小明的M0是200+100=300.  &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;M1：狭义货币供应量&lt;/strong&gt;，M0+企业货期存款+机关团体存款+农村存款+个人信用卡存款&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;M1包括了M0和那部分能够&lt;strong&gt;快速转化&lt;/strong&gt;为现金用于购买商品和服务的存款，如支票存款和部分可随时取用的储蓄存款。M1表现了经济体中较为活跃的货币，主要用于日常的交易活动。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;除了上面的300元现金，小明还有500元在支票账户中，能随时支取。这500元加上他的300元现金，再加上50元支付宝，合计850元为小明的M1。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;M2：广义货币供应量&lt;/strong&gt;，M1+城乡居民储蓄存款+企业定期存款+外币存款+信托类存款
+M2是范围更广的货币供应层次，除了包括M1之外，还加上了一些不那么容易立刻转换为现金的存款，比如定期存款，储蓄存款，和其他一些近似“货币”的金融资产（如货币市场基金）。M2能够提供对经济流动性与未来通货膨胀压力的更全面的了解。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果小明除了上述的600元M1，还在银行有一个2000元的定期存款和1000元在货币市场基金，则这3000元加上600元M1，总共3600元就是小明的M2。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;cpi消费者价格指数-consumer-price-index&#34;&gt;CPI（消费者价格指数 Consumer Price Index）&lt;/h3&gt;
+&lt;p&gt;反映居民消费中物价是否高低（通胀水平），从消费者角度来考虑物价水平。
+CPI能够准确表现消费价格变动趋势和走向，CPI上升1%就意味着居民生活成本提高1%。通常，当CPI&amp;gt;3%的增幅时会被认定为进入了通货膨胀区间。&lt;/p&gt;
+&lt;h3 id=&#34;ppi生产者价格指数-producer-price-index&#34;&gt;PPI（生产者价格指数 Producer Price Index）&lt;/h3&gt;
+&lt;p&gt;反映原材料物价水平，从生产者角度考虑物价水平。通常来说PPI的上涨会转移到CPI上。
+PPI分类可以按照二分法分为生产资料和生活资料，其中前者占比较大约70%，因此PPI更能反映生产资料价格状态。此外，由于价格指数具有粘性，PPI通常落后于宏观经济，因为经济好转后产生需求，才能带动上游生产，这时才可以反映到PPI中，但是经济的真正好转通常需要等待一定时间。&lt;/p&gt;
+&lt;p&gt;PPI通常用来衡量经济是否景气，一般PPI在3％以下，认为经济不景气，再4％到7％左右，认为经济稳定繁荣，但到8％和9%以上，就表明经济可能过热。&lt;/p&gt;
+&lt;h3 id=&#34;pmi采购经理人指数-purchasing-managers-index&#34;&gt;PMI（采购经理人指数 Purchasing Managers&amp;rsquo; Index）&lt;/h3&gt;
+&lt;p&gt;采购经理人指数PMI，包括制造业和非制造业领域，包含生产、订货、库存等多个环节，能够反映经济总体变化趋势，及企业经营活动多个侧面的运行情况。该指标通过公司采购经理人在第一时间获取当月数据，快速及时反映市场动态，因而成为非常重要的先行指标。&lt;/p&gt;
+&lt;p&gt;PMI 取值范围在 0 至 100% 之间，50% 为扩张与收缩的临界点，50%是根据新订单、生产指数、从业人员指数、供应商配送时间和原材料库存等5个扩散指数中的扩张和收缩比例汇总计算得到。高于50%，表示经济活动比上月有所扩张；低于50%，表示经济活动比上月有所收缩。PMI与临界点的距离，表示扩张和收缩的程度。在实际应用中，可以通过 PMI 运行走势监测宏观经济变化情况：&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

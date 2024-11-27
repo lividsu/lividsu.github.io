@@ -5,36 +5,24 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>Create Mysql on a new server with Docker | Blogs of livid</title>
+<title>2B, 2C | Blogs of livid</title>
 <meta name="keywords" content="">
-<meta name="description" content="1. Log in with SSH
-
-
-2. Install Docker
-# Update Package Lists:
-sudo apt update
-
-# Install Required Packages:
-sudo apt install -y apt-transport-https ca-certificates curl gnupg lsb-release
-
-# Add Docker’s Official GPG Key:
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-
-# Set Up the Stable Repository:
-echo &#34;deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&#34; | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
-
-# Update Package Lists Again:
-sudo apt update
-
-# Install Docker Engine:
-sudo apt install -y docker-ce docker-ce-cli containerd.io
-
-# Verify Docker Installation:
-sudo docker --version
-
-">
+<meta name="description" content="一个有趣的事实是，2B和2C两种生意之间的区别似乎越来越小了。
+在几十年前，这是无法想象的事情。试想在以前一个B2B的业务是：假如我是一家面粉公司，
+**在寻求客户方面：**我需要靠人去直接拜访，与关键决策者建立人与人之间的关系。
+**在信息沟通方面：**我依赖电话和书面信函
+**在客户管理方面：**我需要尽可能花心思来维持好的关系，对每个前来询盘的客户我都要花心思介绍，报价，招待。
+**在交易手段方面：**我依托银行来汇款支付
+而对以前的一个B2C的业务，假如我是一家面包店：
+**在寻求客户方面：**我等待街上的自然流量，邻里间的口口相传
+**在信息沟通方面：**我只需要面对面的沟通
+**在客户管理方面：**我几乎不需要客户管理
+**在交易手段方面：**我依托银行来汇款支付
+二者区别就像是生物里的K/R策略一样，2B像大象这种K策略一样，客户数量少，但是优质客户可以稳定获得源源不断的周期性订单，2C则像老鼠这种R策略，追求大量的用户，尽管单个客户带来的利润不高。
+但是随着技术和环境的变化，两种生意的区别正在越来越小。二者都开始借助平台作为流量来源之一（1688 vs 淘宝），沟通方式也并无太大区别。借助AI后，都可以实现非常细致的用户管理，因为对于算法来说，200个B端的用户和20W个C端的用户并没有什么本质区别。交易手段也同样统一成了线上支付。
+原来的大象也可以广撒网，利用互联网主动接触海量的潜在用户。原来的老鼠也可以利用AI，高效的实现在人工时代很昂贵的精细客户管理，双方都向彼此靠了一步。">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/posts/docker_create_mysql/">
+<link rel="canonical" href="http://localhost:1313/posts/2b2c/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.53523c2db28d93bc990a2121b1604c7a4743f9baaa043629a46d5c131b30c9f5.css" integrity="sha256-U1I8LbKNk7yZCiEhsWBMekdD&#43;bqqBDYppG1cExswyfU=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
@@ -43,7 +31,7 @@ sudo docker --version
 <link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/docker_create_mysql/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/2b2c/">
 <noscript>
     <style>
         #theme-toggle,
@@ -135,62 +123,27 @@ sudo docker --version
   <header class="post-header">
     
     <h1 class="post-title entry-hint-parent">
-      Create Mysql on a new server with Docker
+      2B, 2C
     </h1>
-    <div class="post-meta"><span title='2024-05-27 10:44:51 +0800 CST'>May 27, 2024</span>
+    <div class="post-meta"><span title='2024-11-27 16:01:55 +0800 CST'>November 27, 2024</span>
 
 </div>
   </header> 
-  <div class="post-content"><p><strong>1. Log in with SSH</strong>
-<img loading="lazy" src="/img/docker_create_mysql/01.png" alt="png"  />
-</p>
-<p><strong>2. Install Docker</strong></p>
-<pre tabindex="0"><code># Update Package Lists:
-sudo apt update
+  <div class="post-content"><p>一个有趣的事实是，2B和2C两种生意之间的区别似乎越来越小了。</p>
+<p>在几十年前，这是无法想象的事情。试想在以前一个B2B的业务是：假如我是一家面粉公司，</p>
+<p>**在寻求客户方面：**我需要靠人去直接拜访，与关键决策者建立人与人之间的关系。</p>
+<p>**在信息沟通方面：**我依赖电话和书面信函</p>
+<p>**在客户管理方面：**我需要尽可能花心思来维持好的关系，对每个前来询盘的客户我都要花心思介绍，报价，招待。</p>
+<p>**在交易手段方面：**我依托银行来汇款支付</p>
+<p>而对以前的一个B2C的业务，假如我是一家面包店：</p>
+<p>**在寻求客户方面：**我等待街上的自然流量，邻里间的口口相传</p>
+<p>**在信息沟通方面：**我只需要面对面的沟通</p>
+<p>**在客户管理方面：**我几乎不需要客户管理</p>
+<p>**在交易手段方面：**我依托银行来汇款支付</p>
+<p>二者区别就像是生物里的K/R策略一样，2B像大象这种K策略一样，客户数量少，但是优质客户可以稳定获得源源不断的周期性订单，2C则像老鼠这种R策略，追求大量的用户，尽管单个客户带来的利润不高。</p>
+<p>但是随着技术和环境的变化，两种生意的区别正在越来越小。二者都开始借助平台作为流量来源之一（1688 vs 淘宝），沟通方式也并无太大区别。借助AI后，都可以实现非常细致的用户管理，因为对于算法来说，200个B端的用户和20W个C端的用户并没有什么本质区别。交易手段也同样统一成了线上支付。</p>
+<p>原来的大象也可以广撒网，利用互联网主动接触海量的潜在用户。原来的老鼠也可以利用AI，高效的实现在人工时代很昂贵的精细客户管理，双方都向彼此靠了一步。</p>
 
-# Install Required Packages:
-sudo apt install -y apt-transport-https ca-certificates curl gnupg lsb-release
-
-# Add Docker’s Official GPG Key:
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-
-# Set Up the Stable Repository:
-echo &#34;deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&#34; | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
-
-# Update Package Lists Again:
-sudo apt update
-
-# Install Docker Engine:
-sudo apt install -y docker-ce docker-ce-cli containerd.io
-
-# Verify Docker Installation:
-sudo docker --version
-</code></pre><p><img loading="lazy" src="/img/docker_create_mysql/02.png" alt="png"  />
-</p>
-<p><strong>3. Pull MySQL Image from Docker Hub: Fetch the latest MySQL 8.0 Docker image</strong></p>
-<pre tabindex="0"><code>sudo docker pull mysql:8.0
-</code></pre><p><img loading="lazy" src="/img/docker_create_mysql/03.png" alt="png"  />
-</p>
-<p><strong>4. Prepare a config file for remote connection</strong>
-create a folder</p>
-<pre tabindex="0"><code>mkdir -p ~/mysql-docker-config
-</code></pre><p>in the folder create a file named my.cnf, put below content and save.</p>
-<pre tabindex="0"><code>[mysqld]
-bind-address = 0.0.0.0
-</code></pre><p><strong>5. Run MySQL Container: Create and start a new MySQL container. Replace your_root_password with a strong password for the root user.</strong></p>
-<pre tabindex="0"><code>sudo docker run --name mysql-container -d \
-    -p 3306:3306 \
-    -e MYSQL_ROOT_PASSWORD=your_root_password \
-    -v ~/mysql-docker-data:/var/lib/mysql \
-    -v ~/mysql-docker-config/my.cnf:/etc/mysql/my.cnf \
-    mysql:8.0
-</code></pre><p><strong>6. Provide the root user remote visit access</strong></p>
-<pre tabindex="0"><code>sudo docker exec -it mysql-container bash
-mysql -u root -p
-</code></pre><p>in mysql write below code:</p>
-<pre tabindex="0"><code>ALTER USER &#39;root&#39;@&#39;%&#39; IDENTIFIED WITH mysql_native_password BY &#39;your_root_password&#39;;
-FLUSH PRIVILEGES;
-</code></pre>
 
   </div>
 

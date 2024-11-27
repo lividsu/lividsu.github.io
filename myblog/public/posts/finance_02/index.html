@@ -1,23 +1,84 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>Datawhale-quant 笔记02 - Python读取股市数据 | Blogs of livid</title>
 <meta name="keywords" content="">
-<meta name="description" content="!pip install baostock import baostock as bs import pandas as pd import matplotlib.pyplot as plt # login baostock lg = bs.login() print(f&#39;error code {lg.error_code}&#39;) print(f&#39;error msg {lg.error_msg}&#39;) # 分钟线指标：date,time,code,open,high,low,close,volume,amount,adjustflag # 周月线指标：date,code,open,high,low,close,volume,amount,adjustflag,turn,pctChg rs = bs.query_history_k_data_plus(&#34;sh.600000&#34;, &#34;date,code,open,high,low,close,preclose,volume,amount,adjustflag,turn,tradestatus,pctChg,isST&#34;, start_date=&#39;2022-07-01&#39;, end_date=&#39;2023-12-31&#39;, frequency=&#34;d&#34;, adjustflag=&#34;3&#34;) login success! error code 0 error msg success data_list = [] while (rs.error_code == &#39;0&#39;) &amp; rs.next(): # 获取一条记录，将记录合并在一起 data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) df_result.info() &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt; RangeIndex: 367 entries, 0 to 366 Data columns (total 14 columns): # Column Non-Null Count Dtype --- ------ -------------- ----- 0 date 367 non-null object 1 code 367 non-null object 2 open 367 non-null object 3 high 367 non-null object 4 low 367 non-null object 5 close 367 non-null object 6 preclose 367 non-null object 7 volume 367 non-null object 8 amount 367 non-null object 9 adjustflag 367 non-null object 10 turn 367 non-null object 11 tradestatus 367 non-null object 12 pctChg 367 non-null object 13 isST 367 non-null object dtypes: object(14) memory usage: 40.">
+<meta name="description" content="!pip install baostock
+import baostock as bs
+import pandas as pd
+import matplotlib.pyplot as plt
+# login baostock
+lg = bs.login()
+print(f&#39;error code {lg.error_code}&#39;)
+print(f&#39;error msg {lg.error_msg}&#39;)
+# 分钟线指标：date,time,code,open,high,low,close,volume,amount,adjustflag
+# 周月线指标：date,code,open,high,low,close,volume,amount,adjustflag,turn,pctChg
+rs = bs.query_history_k_data_plus(&#34;sh.600000&#34;,
+    &#34;date,code,open,high,low,close,preclose,volume,amount,adjustflag,turn,tradestatus,pctChg,isST&#34;,
+    start_date=&#39;2022-07-01&#39;, end_date=&#39;2023-12-31&#39;,
+    frequency=&#34;d&#34;, adjustflag=&#34;3&#34;)
+login success!
+error code 0
+error msg success
+
+data_list = []
+while (rs.error_code == &#39;0&#39;) &amp; rs.next():
+    # 获取一条记录，将记录合并在一起
+    data_list.append(rs.get_row_data())
+df_result = pd.DataFrame(data_list, columns=rs.fields)
+df_result.info()
+&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 367 entries, 0 to 366
+Data columns (total 14 columns):
+ #   Column       Non-Null Count  Dtype 
+---  ------       --------------  ----- 
+ 0   date         367 non-null    object
+ 1   code         367 non-null    object
+ 2   open         367 non-null    object
+ 3   high         367 non-null    object
+ 4   low          367 non-null    object
+ 5   close        367 non-null    object
+ 6   preclose     367 non-null    object
+ 7   volume       367 non-null    object
+ 8   amount       367 non-null    object
+ 9   adjustflag   367 non-null    object
+ 10  turn         367 non-null    object
+ 11  tradestatus  367 non-null    object
+ 12  pctChg       367 non-null    object
+ 13  isST         367 non-null    object
+dtypes: object(14)
+memory usage: 40.3&#43; KB
+
+逐条解释
+date: 交易所日期
+code：证券代码，sh.600000是上海浦东发展银行股份有限公司，差得2022-07-01收盘价为¥7.99，符合一致
+open：开盘价
+high：最高价
+low：最低价
+close：收盘价
+preclose：前收盘价，即前一天收盘价用来参考
+volume：成交量（股）
+amount：成交额（人民币）
+adjustflag：复权状态(1：后复权， 2：前复权，3：不复权) 复权是为了消除如分红，拆细等操作的影响。
+turn：换手率， 也就是成交量在流通量里的占比。这里的换手率低于10%，属于偏低。
+tradestatus：交易状态(1：正常交易 0：停牌)
+pctChg：涨跌幅，[(指定交易日的收盘价-指定交易日前收盘价)/指定交易日前收盘价]*100%
+isST：中国市场上被打上特殊标记（special treatment），表示公司近期出现了一些财务问题，可能会被限制交易">
 <meta name="author" content="">
-<link rel="canonical" href="http://lividsu.com/posts/finance_02/">
+<link rel="canonical" href="http://localhost:1313/posts/finance_02/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.53523c2db28d93bc990a2121b1604c7a4743f9baaa043629a46d5c131b30c9f5.css" integrity="sha256-U1I8LbKNk7yZCiEhsWBMekdD&#43;bqqBDYppG1cExswyfU=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://lividsu.com/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://lividsu.com/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://lividsu.com/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://lividsu.com/apple-touch-icon.png">
-<link rel="mask-icon" href="http://lividsu.com/safari-pinned-tab.svg">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/finance_02/">
 <noscript>
     <style>
         #theme-toggle,
@@ -54,67 +115,7 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="Datawhale-quant 笔记02 - Python读取股市数据" />
-<meta property="og:description" content="!pip install baostock import baostock as bs import pandas as pd import matplotlib.pyplot as plt # login baostock lg = bs.login() print(f&#39;error code {lg.error_code}&#39;) print(f&#39;error msg {lg.error_msg}&#39;) # 分钟线指标：date,time,code,open,high,low,close,volume,amount,adjustflag # 周月线指标：date,code,open,high,low,close,volume,amount,adjustflag,turn,pctChg rs = bs.query_history_k_data_plus(&#34;sh.600000&#34;, &#34;date,code,open,high,low,close,preclose,volume,amount,adjustflag,turn,tradestatus,pctChg,isST&#34;, start_date=&#39;2022-07-01&#39;, end_date=&#39;2023-12-31&#39;, frequency=&#34;d&#34;, adjustflag=&#34;3&#34;) login success! error code 0 error msg success data_list = [] while (rs.error_code == &#39;0&#39;) &amp; rs.next(): # 获取一条记录，将记录合并在一起 data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) df_result.info() &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt; RangeIndex: 367 entries, 0 to 366 Data columns (total 14 columns): # Column Non-Null Count Dtype --- ------ -------------- ----- 0 date 367 non-null object 1 code 367 non-null object 2 open 367 non-null object 3 high 367 non-null object 4 low 367 non-null object 5 close 367 non-null object 6 preclose 367 non-null object 7 volume 367 non-null object 8 amount 367 non-null object 9 adjustflag 367 non-null object 10 turn 367 non-null object 11 tradestatus 367 non-null object 12 pctChg 367 non-null object 13 isST 367 non-null object dtypes: object(14) memory usage: 40." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://lividsu.com/posts/finance_02/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-01-23T20:13:18+08:00" />
-<meta property="article:modified_time" content="2024-01-23T20:13:18+08:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Datawhale-quant 笔记02 - Python读取股市数据"/>
-<meta name="twitter:description" content="!pip install baostock import baostock as bs import pandas as pd import matplotlib.pyplot as plt # login baostock lg = bs.login() print(f&#39;error code {lg.error_code}&#39;) print(f&#39;error msg {lg.error_msg}&#39;) # 分钟线指标：date,time,code,open,high,low,close,volume,amount,adjustflag # 周月线指标：date,code,open,high,low,close,volume,amount,adjustflag,turn,pctChg rs = bs.query_history_k_data_plus(&#34;sh.600000&#34;, &#34;date,code,open,high,low,close,preclose,volume,amount,adjustflag,turn,tradestatus,pctChg,isST&#34;, start_date=&#39;2022-07-01&#39;, end_date=&#39;2023-12-31&#39;, frequency=&#34;d&#34;, adjustflag=&#34;3&#34;) login success! error code 0 error msg success data_list = [] while (rs.error_code == &#39;0&#39;) &amp; rs.next(): # 获取一条记录，将记录合并在一起 data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) df_result.info() &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt; RangeIndex: 367 entries, 0 to 366 Data columns (total 14 columns): # Column Non-Null Count Dtype --- ------ -------------- ----- 0 date 367 non-null object 1 code 367 non-null object 2 open 367 non-null object 3 high 367 non-null object 4 low 367 non-null object 5 close 367 non-null object 6 preclose 367 non-null object 7 volume 367 non-null object 8 amount 367 non-null object 9 adjustflag 367 non-null object 10 turn 367 non-null object 11 tradestatus 367 non-null object 12 pctChg 367 non-null object 13 isST 367 non-null object dtypes: object(14) memory usage: 40."/>
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Posts",
-      "item": "http://lividsu.com/posts/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "Datawhale-quant 笔记02 - Python读取股市数据",
-      "item": "http://lividsu.com/posts/finance_02/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Datawhale-quant 笔记02 - Python读取股市数据",
-  "name": "Datawhale-quant 笔记02 - Python读取股市数据",
-  "description": "!pip install baostock import baostock as bs import pandas as pd import matplotlib.pyplot as plt # login baostock lg = bs.login() print(f\u0026#39;error code {lg.error_code}\u0026#39;) print(f\u0026#39;error msg {lg.error_msg}\u0026#39;) # 分钟线指标：date,time,code,open,high,low,close,volume,amount,adjustflag # 周月线指标：date,code,open,high,low,close,volume,amount,adjustflag,turn,pctChg rs = bs.query_history_k_data_plus(\u0026#34;sh.600000\u0026#34;, \u0026#34;date,code,open,high,low,close,preclose,volume,amount,adjustflag,turn,tradestatus,pctChg,isST\u0026#34;, start_date=\u0026#39;2022-07-01\u0026#39;, end_date=\u0026#39;2023-12-31\u0026#39;, frequency=\u0026#34;d\u0026#34;, adjustflag=\u0026#34;3\u0026#34;) login success! error code 0 error msg success data_list = [] while (rs.error_code == \u0026#39;0\u0026#39;) \u0026amp; rs.next(): # 获取一条记录，将记录合并在一起 data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) df_result.info() \u0026lt;class 'pandas.core.frame.DataFrame'\u0026gt; RangeIndex: 367 entries, 0 to 366 Data columns (total 14 columns): # Column Non-Null Count Dtype --- ------ -------------- ----- 0 date 367 non-null object 1 code 367 non-null object 2 open 367 non-null object 3 high 367 non-null object 4 low 367 non-null object 5 close 367 non-null object 6 preclose 367 non-null object 7 volume 367 non-null object 8 amount 367 non-null object 9 adjustflag 367 non-null object 10 turn 367 non-null object 11 tradestatus 367 non-null object 12 pctChg 367 non-null object 13 isST 367 non-null object dtypes: object(14) memory usage: 40.",
-  "keywords": [
-    
-  ],
-  "articleBody": "!pip install baostock import baostock as bs import pandas as pd import matplotlib.pyplot as plt # login baostock lg = bs.login() print(f'error code {lg.error_code}') print(f'error msg {lg.error_msg}') # 分钟线指标：date,time,code,open,high,low,close,volume,amount,adjustflag # 周月线指标：date,code,open,high,low,close,volume,amount,adjustflag,turn,pctChg rs = bs.query_history_k_data_plus(\"sh.600000\", \"date,code,open,high,low,close,preclose,volume,amount,adjustflag,turn,tradestatus,pctChg,isST\", start_date='2022-07-01', end_date='2023-12-31', frequency=\"d\", adjustflag=\"3\") login success! error code 0 error msg success data_list = [] while (rs.error_code == '0') \u0026 rs.next(): # 获取一条记录，将记录合并在一起 data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) df_result.info() ",
-  "wordCount" : "242",
-  "inLanguage": "en",
-  "datePublished": "2024-01-23T20:13:18+08:00",
-  "dateModified": "2024-01-23T20:13:18+08:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "http://lividsu.com/posts/finance_02/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Blogs of livid",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "http://lividsu.com/favicon.ico"
-    }
-  }
-}
-</script>
+</noscript>
     
 </head>
 
@@ -133,7 +134,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://lividsu.com/" accesskey="h" title="Blogs of livid (Alt + H)">Blogs of livid</a>
+            <a href="http://localhost:1313/" accesskey="h" title="Blogs of livid (Alt + H)">Blogs of livid</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -155,6 +156,8 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <ul class="lang-switch"><li>|</li>
+                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -266,7 +269,7 @@ PC(Price-to-Cash Flow Ratio) = 股票市值 / 现金流<br>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="http://lividsu.com/">Blogs of livid</a></span>
+    <span>&copy; 2024 <a href="http://localhost:1313/">Blogs of livid</a></span>
     
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
