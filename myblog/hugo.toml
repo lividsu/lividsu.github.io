@@ -2,3 +2,8 @@ baseURL = 'http://lividsu.com/'
 languageCode = 'en-us'
 title = 'Blogs of livid'
 theme = "papermod"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Blogs of livid</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>http://lividsu.com/tags/</link>
     <description>Recent content in Tags on Blogs of livid</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://lividsu.com/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
