@@ -10,7 +10,7 @@
 <meta name="description" content="Posts - Blogs of livid">
 <meta name="author" content="">
 <link rel="canonical" href="http://lividsu.com/posts/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css" integrity="sha256-1vzSCk&#43;4bvpN&#43;sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d72444526d7ecbdb0015438a7fa89054a658bf759d0542e2e5df81ce94b493ee.css" integrity="sha256-1yREUm1&#43;y9sAFUOKf6iQVKZYv3WdBULi5d&#43;BzpS0k&#43;4=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://lividsu.com/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://lividsu.com/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://lividsu.com/favicon-32x32.png">
@@ -134,37 +134,12 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">2B, 2C
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>一个有趣的事实是，2B和2C两种生意之间的区别似乎越来越小了。
-在几十年前，这是无法想象的事情。试想在以前一个B2B的业务是：假如我是一家面粉公司，
-在寻求客户方面：我需要靠人去直接拜访，与关键决策者建立人与人之间的关系。
-在信息沟通方面：我依赖电话和书面信函
-在客户管理方面：我需要尽可能花心思来维持好的关系，对每个前来询盘的客户我都要花心思介绍，报价，招待。
-在交易手段方面：我依托银行来汇款支付
-而对以前的一个B2C的业务，假如我是一家面包店： 在寻求客户方面：我等待街上的自然流量，邻里间的口口相传
-在信息沟通方面：我只需要面对面的沟通
-在客户管理方面：我几乎不需要客户管理
-在交易手段方面：我依托银行来汇款支付
-二者区别就像是生物里的K/R策略一样，2B像大象这种K策略一样，客户数量少，但是优质客户可以稳定获得源源不断的周期性订单，2C则像老鼠这种R策略，追求大量的用户，尽管单个客户带来的利润不高。
-但是随着技术和环境的变化，两种生意的区别正在越来越小。二者都开始借助平台作为流量来源之一（1688 vs 淘宝），沟通方式也并无太大区别。借助AI后，都可以实现非常细致的用户管理，因为对于算法来说，200个B端的用户和20W个C端的用户并没有什么本质区别。交易手段也同样统一成了线上支付。
-原来的大象也可以广撒网，利用互联网主动接触海量的潜在用户。原来的老鼠也可以利用AI，高效的实现在人工时代很昂贵的精细客户管理，双方都向彼此靠了一步。
-</p>
-  </div>
-  <footer class="entry-footer"><span title='2024-11-27 16:01:55 +0800 CST'>November 27, 2024</span></footer>
-  <a class="entry-link" aria-label="post link to 2B, 2C" href="http://lividsu.com/posts/2b2c/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
     <h2 class="entry-hint-parent">Create Mysql on a new server with Docker
     </h2>
   </header>
   <div class="entry-content">
     <p>1. Log in with SSH 2. Install Docker
-# Update Package Lists: sudo apt update # Install Required Packages: sudo apt install -y apt-transport-https ca-certificates curl gnupg lsb-release # Add Docker’s Official GPG Key: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg # Set Up the Stable Repository: echo &#34;deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&#34; | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null # Update Package Lists Again: sudo apt update # Install Docker Engine: sudo apt install -y docker-ce docker-ce-cli containerd.io # Verify Docker Installation: sudo docker --version ...</p>
+# Update Package Lists:sudo apt update# Install Required Packages:sudo apt install -y apt-transport-https ca-certificates curl gnupg lsb-release# Add Docker’s Official GPG Key:curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg# Set Up the Stable Repository:echo &#34;deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&#34; | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null# Update Package Lists Again:sudo apt update# Install Docker Engine:sudo apt install -y docker-ce docker-ce-cli containerd.io# Verify Docker Installation:sudo docker --version ...</p>
   </div>
   <footer class="entry-footer"><span title='2024-05-27 10:44:51 +0800 CST'>May 27, 2024</span></footer>
   <a class="entry-link" aria-label="post link to Create Mysql on a new server with Docker" href="http://lividsu.com/posts/docker_create_mysql/"></a>
@@ -176,7 +151,7 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>import baostock as bs import pandas as pd import matplotlib.pyplot as plt import statsmodels.api as sm from sklearn.preprocessing import StandardScaler from sklearn.linear_model import LinearRegression from sklearn.model_selection import train_test_split def get_bs_df(code, list_para, start_date, end_date, frequency=&#39;d&#39;, adjustflag=&#39;3&#39;): para = &#39;,&#39;.join(list_para) rs = bs.query_history_k_data_plus(code,para, start_date=start_date, end_date=end_date, frequency=frequency, adjustflag=adjustflag) data_list = [] while (rs.error_code == &#39;0&#39;) &amp; rs.next(): data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) print(f&#39;get {len(df_result)} records!&#39;) return df_result def get_bs_profit_data(code, year, quarter): profit_list = [] rs_profit = bs.query_profit_data(code=code, year=year, quarter=quarter) while (rs_profit.error_code == &#39;0&#39;) &amp; rs_profit.next(): profit_list.append(rs_profit.get_row_data()) df_result = pd.DataFrame(profit_list, columns=rs_profit.fields) return df_result lg = bs.login() login success! code = &#39;sh.600000&#39; list_para = [&#39;date&#39;, &#39;code&#39;, &#39;close&#39;, &#39;volume&#39;, &#39;turn&#39;, &#39;peTTM&#39;, &#39;psTTM&#39;] start_date = &#39;2020-01-01&#39; end_date = &#39;2024-01-20&#39; df_daily = get_bs_df(code, list_para, start_date, end_date) df_profit = get_bs_profit_data(code, &#39;2020&#39;, &#39;1&#39;) get 984 records! df_profit ...</p>
+    <p>import baostock as bs import pandas as pd import matplotlib.pyplot as plt import statsmodels.api as sm from sklearn.preprocessing import StandardScaler from sklearn.linear_model import LinearRegression from sklearn.model_selection import train_test_split def get_bs_df(code, list_para, start_date, end_date, frequency=&#39;d&#39;, adjustflag=&#39;3&#39;): para = &#39;,&#39;.join(list_para) rs = bs.query_history_k_data_plus(code,para, start_date=start_date, end_date=end_date, frequency=frequency, adjustflag=adjustflag) data_list = [] while (rs.error_code == &#39;0&#39;) &amp; rs.next(): data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) print(f&#39;get {len(df_result)} records!&#39;) return df_result def get_bs_profit_data(code, year, quarter): profit_list = [] rs_profit = bs.query_profit_data(code=code, year=year, quarter=quarter) while (rs_profit.error_code == &#39;0&#39;) &amp; rs_profit.next(): profit_list.append(rs_profit.get_row_data()) df_result = pd.DataFrame(profit_list, columns=rs_profit.fields) return df_result lg = bs.login() login success!code = &#39;sh.600000&#39; list_para = [&#39;date&#39;, &#39;code&#39;, &#39;close&#39;, &#39;volume&#39;, &#39;turn&#39;, &#39;peTTM&#39;, &#39;psTTM&#39;] start_date = &#39;2020-01-01&#39; end_date = &#39;2024-01-20&#39; df_daily = get_bs_df(code, list_para, start_date, end_date) df_profit = get_bs_profit_data(code, &#39;2020&#39;, &#39;1&#39;) get 984 records!df_profit ...</p>
   </div>
   <footer class="entry-footer"><span title='2024-01-24 14:56:03 +0800 CST'>January 24, 2024</span></footer>
   <a class="entry-link" aria-label="post link to Datawhale-quant 笔记03 - 量化选股策略浅尝试" href="http://lividsu.com/posts/finance_03/"></a>
@@ -188,7 +163,7 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>!pip install baostock import baostock as bs import pandas as pd import matplotlib.pyplot as plt # login baostock lg = bs.login() print(f&#39;error code {lg.error_code}&#39;) print(f&#39;error msg {lg.error_msg}&#39;) # 分钟线指标：date,time,code,open,high,low,close,volume,amount,adjustflag # 周月线指标：date,code,open,high,low,close,volume,amount,adjustflag,turn,pctChg rs = bs.query_history_k_data_plus(&#34;sh.600000&#34;, &#34;date,code,open,high,low,close,preclose,volume,amount,adjustflag,turn,tradestatus,pctChg,isST&#34;, start_date=&#39;2022-07-01&#39;, end_date=&#39;2023-12-31&#39;, frequency=&#34;d&#34;, adjustflag=&#34;3&#34;) login success! error code 0 error msg success data_list = [] while (rs.error_code == &#39;0&#39;) &amp; rs.next(): # 获取一条记录，将记录合并在一起 data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) df_result.info() &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt; RangeIndex: 367 entries, 0 to 366 Data columns (total 14 columns): # Column Non-Null Count Dtype --- ------ -------------- ----- 0 date 367 non-null object 1 code 367 non-null object 2 open 367 non-null object 3 high 367 non-null object 4 low 367 non-null object 5 close 367 non-null object 6 preclose 367 non-null object 7 volume 367 non-null object 8 amount 367 non-null object 9 adjustflag 367 non-null object 10 turn 367 non-null object 11 tradestatus 367 non-null object 12 pctChg 367 non-null object 13 isST 367 non-null object dtypes: object(14) memory usage: 40.3&#43; KB 逐条解释
+    <p>!pip install baostock import baostock as bs import pandas as pd import matplotlib.pyplot as plt # login baostock lg = bs.login() print(f&#39;error code {lg.error_code}&#39;) print(f&#39;error msg {lg.error_msg}&#39;) # 分钟线指标：date,time,code,open,high,low,close,volume,amount,adjustflag # 周月线指标：date,code,open,high,low,close,volume,amount,adjustflag,turn,pctChg rs = bs.query_history_k_data_plus(&#34;sh.600000&#34;, &#34;date,code,open,high,low,close,preclose,volume,amount,adjustflag,turn,tradestatus,pctChg,isST&#34;, start_date=&#39;2022-07-01&#39;, end_date=&#39;2023-12-31&#39;, frequency=&#34;d&#34;, adjustflag=&#34;3&#34;) login success!error code 0error msg successdata_list = [] while (rs.error_code == &#39;0&#39;) &amp; rs.next(): # 获取一条记录，将记录合并在一起 data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) df_result.info() &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;RangeIndex: 367 entries, 0 to 366Data columns (total 14 columns):# Column Non-Null Count Dtype --- ------ -------------- ----- 0 date 367 non-null object1 code 367 non-null object2 open 367 non-null object3 high 367 non-null object4 low 367 non-null object5 close 367 non-null object6 preclose 367 non-null object7 volume 367 non-null object8 amount 367 non-null object9 adjustflag 367 non-null object10 turn 367 non-null object11 tradestatus 367 non-null object12 pctChg 367 non-null object13 isST 367 non-null objectdtypes: object(14)memory usage: 40.3&#43; KB逐条解释
 date: 交易所日期
 code：证券代码，sh.600000是上海浦东发展银行股份有限公司，差得2022-07-01收盘价为¥7.99，符合一致
 open：开盘价
@@ -237,7 +212,7 @@ PMI 取值范围在 0 至 100% 之间，50% 为扩张与收缩的临界点，50%
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="http://lividsu.com/">Blogs of livid</a></span> · 
+        <span>&copy; 2025 <a href="http://lividsu.com/">Blogs of livid</a></span> · 
 
     <span>
         Powered by

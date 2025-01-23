@@ -4,33 +4,10 @@
     <title>Blogs of livid</title>
     <link>http://lividsu.com/</link>
     <description>Recent content on Blogs of livid</description>
-    <generator>Hugo -- 0.139.2</generator>
+    <generator>Hugo -- 0.142.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 Nov 2024 16:01:55 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 27 May 2024 10:44:51 +0800</lastBuildDate>
     <atom:link href="http://lividsu.com/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>2B, 2C</title>
-      <link>http://lividsu.com/posts/2b2c/</link>
-      <pubDate>Wed, 27 Nov 2024 16:01:55 +0800</pubDate>
-      <guid>http://lividsu.com/posts/2b2c/</guid>
-      <description>&lt;p&gt;一个有趣的事实是，2B和2C两种生意之间的区别似乎越来越小了。&lt;/p&gt;
-&lt;br&gt;
-&lt;p&gt;在几十年前，这是无法想象的事情。试想在以前一个B2B的业务是：假如我是一家面粉公司，&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;在寻求客户方面&lt;/strong&gt;：我需要靠人去直接拜访，与关键决策者建立人与人之间的关系。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;在信息沟通方面&lt;/strong&gt;：我依赖电话和书面信函&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;在客户管理方面&lt;/strong&gt;：我需要尽可能花心思来维持好的关系，对每个前来询盘的客户我都要花心思介绍，报价，招待。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;在交易手段方面&lt;/strong&gt;：我依托银行来汇款支付&lt;/p&gt;
-&lt;br&gt;
-而对以前的一个B2C的业务，假如我是一家面包店：
-&lt;p&gt;&lt;strong&gt;在寻求客户方面&lt;/strong&gt;：我等待街上的自然流量，邻里间的口口相传&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;在信息沟通方面&lt;/strong&gt;：我只需要面对面的沟通&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;在客户管理方面&lt;/strong&gt;：我几乎不需要客户管理&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;在交易手段方面&lt;/strong&gt;：我依托银行来汇款支付&lt;/p&gt;
-&lt;br&gt;
-&lt;p&gt;二者区别就像是生物里的K/R策略一样，2B像大象这种K策略一样，客户数量少，但是优质客户可以稳定获得源源不断的周期性订单，2C则像老鼠这种R策略，追求大量的用户，尽管单个客户带来的利润不高。&lt;/p&gt;
-&lt;p&gt;但是随着技术和环境的变化，两种生意的区别正在越来越小。二者都开始借助平台作为流量来源之一（1688 vs 淘宝），沟通方式也并无太大区别。借助AI后，都可以实现非常细致的用户管理，因为对于算法来说，200个B端的用户和20W个C端的用户并没有什么本质区别。交易手段也同样统一成了线上支付。&lt;/p&gt;
-&lt;p&gt;原来的大象也可以广撒网，利用互联网主动接触海量的潜在用户。原来的老鼠也可以利用AI，高效的实现在人工时代很昂贵的精细客户管理，双方都向彼此靠了一步。&lt;/p&gt;</description>
-    </item>
     <item>
       <title>Create Mysql on a new server with Docker</title>
       <link>http://lividsu.com/posts/docker_create_mysql/</link>
