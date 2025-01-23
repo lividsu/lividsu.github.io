@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=5498&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>Datawhale-quant 笔记03 - 量化选股策略浅尝试 | Blogs of livid</title>
 <meta name="keywords" content="">
 <meta name="description" content="import baostock as bs
@@ -48,16 +48,16 @@ df_profit
 
 ">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:5498/posts/finance_03/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.d72444526d7ecbdb0015438a7fa89054a658bf759d0542e2e5df81ce94b493ee.css" integrity="sha256-1yREUm1&#43;y9sAFUOKf6iQVKZYv3WdBULi5d&#43;BzpS0k&#43;4=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:5498/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:5498/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:5498/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:5498/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:5498/safari-pinned-tab.svg">
+<link rel="canonical" href="http://lividsu.com/posts/finance_03/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css" integrity="sha256-1vzSCk&#43;4bvpN&#43;sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://lividsu.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://lividsu.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://lividsu.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://lividsu.com/apple-touch-icon.png">
+<link rel="mask-icon" href="http://lividsu.com/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:5498/posts/finance_03/">
+<link rel="alternate" hreflang="en" href="http://lividsu.com/posts/finance_03/">
 <noscript>
     <style>
         #theme-toggle,
@@ -94,7 +94,108 @@ df_profit
         }
 
     </style>
-</noscript>
+</noscript><meta property="og:url" content="http://lividsu.com/posts/finance_03/">
+  <meta property="og:site_name" content="Blogs of livid">
+  <meta property="og:title" content="Datawhale-quant 笔记03 - 量化选股策略浅尝试">
+  <meta property="og:description" content="import baostock as bs import pandas as pd import matplotlib.pyplot as plt import statsmodels.api as sm from sklearn.preprocessing import StandardScaler from sklearn.linear_model import LinearRegression from sklearn.model_selection import train_test_split def get_bs_df(code, list_para, start_date, end_date, frequency=&#39;d&#39;, adjustflag=&#39;3&#39;): para = &#39;,&#39;.join(list_para) rs = bs.query_history_k_data_plus(code,para, start_date=start_date, end_date=end_date, frequency=frequency, adjustflag=adjustflag) data_list = [] while (rs.error_code == &#39;0&#39;) &amp; rs.next(): data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) print(f&#39;get {len(df_result)} records!&#39;) return df_result def get_bs_profit_data(code, year, quarter): profit_list = [] rs_profit = bs.query_profit_data(code=code, year=year, quarter=quarter) while (rs_profit.error_code == &#39;0&#39;) &amp; rs_profit.next(): profit_list.append(rs_profit.get_row_data()) df_result = pd.DataFrame(profit_list, columns=rs_profit.fields) return df_result lg = bs.login() login success! code = &#39;sh.600000&#39; list_para = [&#39;date&#39;, &#39;code&#39;, &#39;close&#39;, &#39;volume&#39;, &#39;turn&#39;, &#39;peTTM&#39;, &#39;psTTM&#39;] start_date = &#39;2020-01-01&#39; end_date = &#39;2024-01-20&#39; df_daily = get_bs_df(code, list_para, start_date, end_date) df_profit = get_bs_profit_data(code, &#39;2020&#39;, &#39;1&#39;) get 984 records! df_profit ">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-01-24T14:56:03+08:00">
+    <meta property="article:modified_time" content="2024-01-24T14:56:03+08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Datawhale-quant 笔记03 - 量化选股策略浅尝试">
+<meta name="twitter:description" content="import baostock as bs
+import pandas as pd
+import matplotlib.pyplot as plt
+import statsmodels.api as sm
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+def get_bs_df(code, list_para, start_date, end_date, frequency=&#39;d&#39;, adjustflag=&#39;3&#39;):
+    para = &#39;,&#39;.join(list_para)
+    rs = bs.query_history_k_data_plus(code,para,
+    start_date=start_date, end_date=end_date,
+    frequency=frequency, adjustflag=adjustflag)
+    data_list = []
+    while (rs.error_code == &#39;0&#39;) &amp; rs.next():
+        data_list.append(rs.get_row_data())
+    df_result = pd.DataFrame(data_list, columns=rs.fields)
+    print(f&#39;get {len(df_result)} records!&#39;)
+    return df_result
+    
+def get_bs_profit_data(code, year, quarter):
+    profit_list = []
+    rs_profit = bs.query_profit_data(code=code, year=year, quarter=quarter)
+    while (rs_profit.error_code == &#39;0&#39;) &amp; rs_profit.next():
+        profit_list.append(rs_profit.get_row_data())
+    df_result = pd.DataFrame(profit_list, columns=rs_profit.fields)
+    return df_result
+lg = bs.login()
+login success!
+
+code = &#39;sh.600000&#39;
+list_para = [&#39;date&#39;, &#39;code&#39;, &#39;close&#39;, &#39;volume&#39;, &#39;turn&#39;, &#39;peTTM&#39;, &#39;psTTM&#39;]
+start_date = &#39;2020-01-01&#39;
+end_date = &#39;2024-01-20&#39;
+df_daily = get_bs_df(code, list_para, start_date, end_date)
+df_profit = get_bs_profit_data(code, &#39;2020&#39;, &#39;1&#39;)
+get 984 records!
+
+df_profit
+
+">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://lividsu.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Datawhale-quant 笔记03 - 量化选股策略浅尝试",
+      "item": "http://lividsu.com/posts/finance_03/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Datawhale-quant 笔记03 - 量化选股策略浅尝试",
+  "name": "Datawhale-quant 笔记03 - 量化选股策略浅尝试",
+  "description": "import baostock as bs import pandas as pd import matplotlib.pyplot as plt import statsmodels.api as sm from sklearn.preprocessing import StandardScaler from sklearn.linear_model import LinearRegression from sklearn.model_selection import train_test_split def get_bs_df(code, list_para, start_date, end_date, frequency=\u0026#39;d\u0026#39;, adjustflag=\u0026#39;3\u0026#39;): para = \u0026#39;,\u0026#39;.join(list_para) rs = bs.query_history_k_data_plus(code,para, start_date=start_date, end_date=end_date, frequency=frequency, adjustflag=adjustflag) data_list = [] while (rs.error_code == \u0026#39;0\u0026#39;) \u0026amp; rs.next(): data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) print(f\u0026#39;get {len(df_result)} records!\u0026#39;) return df_result def get_bs_profit_data(code, year, quarter): profit_list = [] rs_profit = bs.query_profit_data(code=code, year=year, quarter=quarter) while (rs_profit.error_code == \u0026#39;0\u0026#39;) \u0026amp; rs_profit.next(): profit_list.append(rs_profit.get_row_data()) df_result = pd.DataFrame(profit_list, columns=rs_profit.fields) return df_result lg = bs.login() login success! code = \u0026#39;sh.600000\u0026#39; list_para = [\u0026#39;date\u0026#39;, \u0026#39;code\u0026#39;, \u0026#39;close\u0026#39;, \u0026#39;volume\u0026#39;, \u0026#39;turn\u0026#39;, \u0026#39;peTTM\u0026#39;, \u0026#39;psTTM\u0026#39;] start_date = \u0026#39;2020-01-01\u0026#39; end_date = \u0026#39;2024-01-20\u0026#39; df_daily = get_bs_df(code, list_para, start_date, end_date) df_profit = get_bs_profit_data(code, \u0026#39;2020\u0026#39;, \u0026#39;1\u0026#39;) get 984 records! df_profit ",
+  "keywords": [
+    
+  ],
+  "articleBody": "import baostock as bs import pandas as pd import matplotlib.pyplot as plt import statsmodels.api as sm from sklearn.preprocessing import StandardScaler from sklearn.linear_model import LinearRegression from sklearn.model_selection import train_test_split def get_bs_df(code, list_para, start_date, end_date, frequency='d', adjustflag='3'): para = ','.join(list_para) rs = bs.query_history_k_data_plus(code,para, start_date=start_date, end_date=end_date, frequency=frequency, adjustflag=adjustflag) data_list = [] while (rs.error_code == '0') \u0026 rs.next(): data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) print(f'get {len(df_result)} records!') return df_result def get_bs_profit_data(code, year, quarter): profit_list = [] rs_profit = bs.query_profit_data(code=code, year=year, quarter=quarter) while (rs_profit.error_code == '0') \u0026 rs_profit.next(): profit_list.append(rs_profit.get_row_data()) df_result = pd.DataFrame(profit_list, columns=rs_profit.fields) return df_result lg = bs.login() login success! code = 'sh.600000' list_para = ['date', 'code', 'close', 'volume', 'turn', 'peTTM', 'psTTM'] start_date = '2020-01-01' end_date = '2024-01-20' df_daily = get_bs_df(code, list_para, start_date, end_date) df_profit = get_bs_profit_data(code, '2020', '1') get 984 records! df_profit code pubDate statDate roeAvg npMargin gpMargin netProfit epsTTM MBRevenue totalShare liqaShare 0 sh.600000 2020-04-25 2020-03-31 0.030746 0.316289 17530000000.000000 2.037777 29352080397.00 28103763899.00 # get market value and earning df_daily['market_value'] = df_daily['close'].astype(float) * float(df_profit['liqaShare'].iloc[0]) df_daily['peTTM'] = df_daily['peTTM'].replace('', pd.NaT) df_daily['peTTM'] = df_daily['peTTM'].astype(float) df_daily['peTTM'] = df_daily['peTTM'].fillna((df_daily['peTTM'].shift() + df_daily['peTTM'].shift(-1)) / 2) df_daily['earning'] = df_daily['market_value'] / df_daily['peTTM'].astype(float) df_daily date code close volume turn peTTM psTTM market_value earning 0 2020-01-02 sh.600000 12.4700 51629079 0.183700 5.994733 1.915555 3.504539e+11 5.846031e+10 1 2020-01-03 sh.600000 12.6000 38018810 0.135300 6.057229 1.935525 3.541074e+11 5.846030e+10 2 2020-01-06 sh.600000 12.4600 41001193 0.145900 5.989926 1.914019 3.501729e+11 5.846030e+10 3 2020-01-07 sh.600000 12.5000 28421482 0.101100 6.009155 1.920164 3.512970e+11 5.846031e+10 4 2020-01-08 sh.600000 12.3200 35240536 0.125400 5.922624 1.892513 3.462384e+11 5.846030e+10 ... ... ... ... ... ... ... ... ... ... 979 2024-01-15 sh.600000 6.5100 28694155 0.097800 4.938175 1.074966 1.829555e+11 3.704921e+10 980 2024-01-16 sh.600000 6.5900 53186496 0.181200 4.998859 1.088176 1.852038e+11 3.704922e+10 981 2024-01-17 sh.600000 6.5300 48249869 0.164400 4.953346 1.078268 1.835176e+11 3.704921e+10 982 2024-01-18 sh.600000 6.5600 73994422 0.252100 4.976102 1.083222 1.843607e+11 3.704922e+10 983 2024-01-19 sh.600000 6.5900 57640079 0.196400 4.998859 1.088176 1.852038e+11 3.704922e+10 984 rows × 9 columns\ndf_daily['market_value'].plot() df_daily['earning'].plot() neutralize the market value groups = df_daily.groupby('date') groups # 定义一个函数来执行市值中性化 def market_neutralize(group): # 提取市值和收益的数据列 market_cap = group['market_value'] returns = group['earning'] # 添加截距项 X = sm.add_constant(market_cap) # 执行线性回归，拟合收益率与市值的关系 model = sm.OLS(returns, X) results = model.fit() # 提取回归系数 beta = results.params['market_value'] # 计算市值中性化后的收益 neutralized_returns = returns - beta * market_cap # 将市值中性化后的收益添加到数据框中 group['neutralized_value'] = neutralized_returns return group neutralized_data = groups.apply(market_neutralize) C:\\Users\\livid\\AppData\\Local\\Temp\\ipykernel_26144\\1156377993.py:1: DeprecationWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning. neutralized_data = groups.apply(market_neutralize) neutralized_data date code close volume turn peTTM psTTM market_value earning neutralized_value date 2020-01-02 0 2020-01-02 sh.600000 12.4700 51629079 0.183700 5.994733 1.915555 3.504539e+11 5.846031e+10 -0.000008 2020-01-03 1 2020-01-03 sh.600000 12.6000 38018810 0.135300 6.057229 1.935525 3.541074e+11 5.846030e+10 -0.000008 2020-01-06 2 2020-01-06 sh.600000 12.4600 41001193 0.145900 5.989926 1.914019 3.501729e+11 5.846030e+10 0.000000 2020-01-07 3 2020-01-07 sh.600000 12.5000 28421482 0.101100 6.009155 1.920164 3.512970e+11 5.846031e+10 0.000000 2020-01-08 4 2020-01-08 sh.600000 12.3200 35240536 0.125400 5.922624 1.892513 3.462384e+11 5.846030e+10 -0.000008 ... ... ... ... ... ... ... ... ... ... ... ... 2024-01-15 979 2024-01-15 sh.600000 6.5100 28694155 0.097800 4.938175 1.074966 1.829555e+11 3.704921e+10 0.000000 2024-01-16 980 2024-01-16 sh.600000 6.5900 53186496 0.181200 4.998859 1.088176 1.852038e+11 3.704922e+10 0.000000 2024-01-17 981 2024-01-17 sh.600000 6.5300 48249869 0.164400 4.953346 1.078268 1.835176e+11 3.704921e+10 0.000000 2024-01-18 982 2024-01-18 sh.600000 6.5600 73994422 0.252100 4.976102 1.083222 1.843607e+11 3.704922e+10 0.000000 2024-01-19 983 2024-01-19 sh.600000 6.5900 57640079 0.196400 4.998859 1.088176 1.852038e+11 3.704922e+10 0.000000 984 rows × 10 columns\nneutralized_data['neutralized_value'].plot() def get_all_stock(day): rs = bs.query_all_stock(day=day) print('login respond error_msg:'+lg.error_msg) data_list = [] while (rs.error_code == '0') \u0026 rs.next(): data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) return df_result df_all_stock = get_all_stock('2023-06-30') df_all_stock login respond error_msg:success code tradeStatus code_name 0 bj.430017 1 1 bj.430047 1 2 bj.430090 1 3 bj.430139 1 4 bj.430198 1 ... ... ... ... 5729 sz.399994 1 中证信息安全主题指数 5730 sz.399995 1 中证基建工程指数 5731 sz.399996 1 中证智能家居指数 5732 sz.399997 1 中证白酒指数 5733 sz.399998 1 中证煤炭指数 5734 rows × 3 columns\ndf_all_stock code tradeStatus code_name 0 bj.430017 1 1 bj.430047 1 2 bj.430090 1 3 bj.430139 1 4 bj.430198 1 ... ... ... ... 5729 sz.399994 1 中证信息安全主题指数 5730 sz.399995 1 中证基建工程指数 5731 sz.399996 1 中证智能家居指数 5732 sz.399997 1 中证白酒指数 5733 sz.399998 1 中证煤炭指数 5734 rows × 3 columns\nrandom_code_list = df_all_stock['code'].sample(n=100, random_state=42) random_code_list[:10] 4200 sz.300042 4523 sz.300382 5039 sz.300915 5271 sz.301176 4570 sz.300429 80 bj.833533 4793 sz.300657 5444 sz.399001 2275 sh.688195 4889 sz.300759 Name: code, dtype: object df_random_stock = pd.DataFrame() for code in random_code_list: df_query_profit = get_bs_profit_data(code, '2023', '1') df_random_stock = pd.concat([df_query_profit, df_random_stock]) df_random_stock code pubDate statDate roeAvg npMargin gpMargin netProfit epsTTM MBRevenue totalShare liqaShare 0 sz.002218 2023-04-29 2023-03-31 0.002858 0.050926 0.289261 12106116.880000 0.069248 1413020549.00 1387097895.00 0 sz.301357 2023-04-27 2023-03-31 0.044201 0.354312 0.651019 17763133.330000 1.471854 51000000.00 0 sz.300499 2023-04-26 2023-03-31 -0.003956 -0.037230 0.227312 -5611060.330000 0.883847 308620124.00 271911172.00 0 sh.688269 2023-04-28 2023-03-31 0.041665 0.083434 0.147126 41259946.580000 1.582064 130704000.00 60475900.00 0 sz.301279 2023-04-26 2023-03-31 0.007763 0.069013 0.141962 10281710.320000 0.773333 100000000.00 23466231.00 ... ... ... ... ... ... ... ... ... ... ... ... 0 sz.300429 2023-04-28 2023-03-31 -0.000570 -0.012060 0.258751 -2244763.150000 -0.230454 515261048.00 375715354.00 0 sz.301176 2023-04-27 2023-03-31 -0.001667 -0.009401 0.049233 -2776984.670000 0.202462 169066667.00 41056040.00 0 sz.300915 2023-04-26 2023-03-31 0.016050 0.097880 0.343378 23510745.420000 0.940146 90000000.00 24817500.00 0 sz.300382 2023-04-27 2023-03-31 0.015834 0.107267 0.363690 31710249.410000 0.351077 626551245.00 626494545.00 0 sz.300042 2023-04-28 2023-03-31 0.006159 0.021261 0.102368 7289785.240000 0.304631 200400000.00 179535526.00 82 rows × 11 columns\nfor col in ['roeAvg', 'npMargin', 'gpMargin', 'epsTTM']: df_random_stock[col] = df_random_stock[col].replace('', float('nan')) df_random_stock[col] = df_random_stock[col].astype(float) df_random_stock[col] = df_random_stock[col].fillna((df_random_stock[col].shift() + df_random_stock[col].shift(-1)) / 2) df_random_stock[col] = df_random_stock[col].ffill().bfill() df_random_stock.info() ",
+  "wordCount" : "1320",
+  "inLanguage": "en",
+  "datePublished": "2024-01-24T14:56:03+08:00",
+  "dateModified": "2024-01-24T14:56:03+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://lividsu.com/posts/finance_03/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Blogs of livid",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://lividsu.com/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -112,7 +213,7 @@ df_profit
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:5498/" accesskey="h" title="Blogs of livid (Alt + H)">Blogs of livid</a>
+            <a href="http://lividsu.com/" accesskey="h" title="Blogs of livid (Alt + H)">Blogs of livid</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -1426,7 +1527,7 @@ Name: epsTTM, dtype: float64
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="http://localhost:5498/">Blogs of livid</a></span> · 
+        <span>&copy; 2024 <a href="http://lividsu.com/">Blogs of livid</a></span> · 
 
     <span>
         Powered by
