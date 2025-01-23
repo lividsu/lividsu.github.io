@@ -2,42 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Posts on Blogs of livid</title>
-    <link>http://lividsu.com/posts/</link>
+    <link>http://localhost:5995/posts/</link>
     <description>Recent content in Posts on Blogs of livid</description>
-    <generator>Hugo -- 0.139.2</generator>
+    <generator>Hugo -- 0.142.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 Nov 2024 16:01:55 +0800</lastBuildDate>
-    <atom:link href="http://lividsu.com/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>2B, 2C</title>
-      <link>http://lividsu.com/posts/2b2c/</link>
-      <pubDate>Wed, 27 Nov 2024 16:01:55 +0800</pubDate>
-      <guid>http://lividsu.com/posts/2b2c/</guid>
-      <description>&lt;p&gt;一个有趣的事实是，2B和2C两种生意之间的区别似乎越来越小了。&lt;/p&gt;
-&lt;br&gt;
-&lt;p&gt;在几十年前，这是无法想象的事情。试想在以前一个B2B的业务是：假如我是一家面粉公司，&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;在寻求客户方面&lt;/strong&gt;：我需要靠人去直接拜访，与关键决策者建立人与人之间的关系。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;在信息沟通方面&lt;/strong&gt;：我依赖电话和书面信函&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;在客户管理方面&lt;/strong&gt;：我需要尽可能花心思来维持好的关系，对每个前来询盘的客户我都要花心思介绍，报价，招待。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;在交易手段方面&lt;/strong&gt;：我依托银行来汇款支付&lt;/p&gt;
-&lt;br&gt;
-而对以前的一个B2C的业务，假如我是一家面包店：
-&lt;p&gt;&lt;strong&gt;在寻求客户方面&lt;/strong&gt;：我等待街上的自然流量，邻里间的口口相传&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;在信息沟通方面&lt;/strong&gt;：我只需要面对面的沟通&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;在客户管理方面&lt;/strong&gt;：我几乎不需要客户管理&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;在交易手段方面&lt;/strong&gt;：我依托银行来汇款支付&lt;/p&gt;
-&lt;br&gt;
-&lt;p&gt;二者区别就像是生物里的K/R策略一样，2B像大象这种K策略一样，客户数量少，但是优质客户可以稳定获得源源不断的周期性订单，2C则像老鼠这种R策略，追求大量的用户，尽管单个客户带来的利润不高。&lt;/p&gt;
-&lt;p&gt;但是随着技术和环境的变化，两种生意的区别正在越来越小。二者都开始借助平台作为流量来源之一（1688 vs 淘宝），沟通方式也并无太大区别。借助AI后，都可以实现非常细致的用户管理，因为对于算法来说，200个B端的用户和20W个C端的用户并没有什么本质区别。交易手段也同样统一成了线上支付。&lt;/p&gt;
-&lt;p&gt;原来的大象也可以广撒网，利用互联网主动接触海量的潜在用户。原来的老鼠也可以利用AI，高效的实现在人工时代很昂贵的精细客户管理，双方都向彼此靠了一步。&lt;/p&gt;</description>
-    </item>
+    <lastBuildDate>Mon, 27 May 2024 10:44:51 +0800</lastBuildDate>
+    <atom:link href="http://localhost:5995/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Create Mysql on a new server with Docker</title>
-      <link>http://lividsu.com/posts/docker_create_mysql/</link>
+      <link>http://localhost:5995/posts/docker_create_mysql/</link>
       <pubDate>Mon, 27 May 2024 10:44:51 +0800</pubDate>
-      <guid>http://lividsu.com/posts/docker_create_mysql/</guid>
+      <guid>http://localhost:5995/posts/docker_create_mysql/</guid>
       <description>&lt;p&gt;&lt;strong&gt;1. Log in with SSH&lt;/strong&gt;
-&lt;img alt=&#34;png&#34; loading=&#34;lazy&#34; src=&#34;http://lividsu.com/img/docker_create_mysql/01.png&#34;&gt;&lt;/p&gt;
+&lt;img alt=&#34;png&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:5995/img/docker_create_mysql/01.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;2. Install Docker&lt;/strong&gt;&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# Update Package Lists:
 sudo apt update
@@ -59,13 +36,13 @@ sudo apt install -y docker-ce docker-ce-cli containerd.io
 
 # Verify Docker Installation:
 sudo docker --version
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img alt=&#34;png&#34; loading=&#34;lazy&#34; src=&#34;http://lividsu.com/img/docker_create_mysql/02.png&#34;&gt;&lt;/p&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img alt=&#34;png&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:5995/img/docker_create_mysql/02.png&#34;&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Datawhale-quant 笔记03 - 量化选股策略浅尝试</title>
-      <link>http://lividsu.com/posts/finance_03/</link>
+      <link>http://localhost:5995/posts/finance_03/</link>
       <pubDate>Wed, 24 Jan 2024 14:56:03 +0800</pubDate>
-      <guid>http://lividsu.com/posts/finance_03/</guid>
+      <guid>http://localhost:5995/posts/finance_03/</guid>
       <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; baostock &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; bs
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; pandas &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; pd
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; matplotlib.pyplot &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; plt
@@ -121,9 +98,9 @@ sudo docker --version
     </item>
     <item>
       <title>Datawhale-quant 笔记02 - Python读取股市数据</title>
-      <link>http://lividsu.com/posts/finance_02/</link>
+      <link>http://localhost:5995/posts/finance_02/</link>
       <pubDate>Tue, 23 Jan 2024 20:13:18 +0800</pubDate>
-      <guid>http://lividsu.com/posts/finance_02/</guid>
+      <guid>http://localhost:5995/posts/finance_02/</guid>
       <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;!&lt;/span&gt;pip install baostock
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; baostock &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; bs
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; pandas &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; pd
@@ -188,9 +165,9 @@ isST：中国市场上被打上特殊标记（special treatment），表示公�
     </item>
     <item>
       <title>Datawhale-quant 笔记 - 金融市场基本概念</title>
-      <link>http://lividsu.com/posts/finance_01/</link>
+      <link>http://localhost:5995/posts/finance_01/</link>
       <pubDate>Sun, 21 Jan 2024 19:18:32 +0800</pubDate>
-      <guid>http://lividsu.com/posts/finance_01/</guid>
+      <guid>http://localhost:5995/posts/finance_01/</guid>
       <description>&lt;h3 id=&#34;贴现率-discount-rate&#34;&gt;贴现率 Discount Rate&lt;/h3&gt;
 &lt;p&gt;所有今天的钱都可以用来投资，进行复利效应，因此今天的100元在未来的价值会高于100元，反过来说也就是未来的100元在今天的价值会低于100元。并且因为风险的存在，这个价值会进一步打折扣。
 而用来量化未来的钱在今天的价值，这个概念也就是&lt;strong&gt;贴现率&lt;/strong&gt;。&lt;/p&gt;
@@ -246,13 +223,13 @@ PPI分类可以按照二分法分为生产资料和生活资料，其中前者�
 &lt;p&gt;PMI 取值范围在 0 至 100% 之间，50% 为扩张与收缩的临界点，50%是根据新订单、生产指数、从业人员指数、供应商配送时间和原材料库存等5个扩散指数中的扩张和收缩比例汇总计算得到。高于50%，表示经济活动比上月有所扩张；低于50%，表示经济活动比上月有所收缩。PMI与临界点的距离，表示扩张和收缩的程度。在实际应用中，可以通过 PMI 运行走势监测宏观经济变化情况：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;扩张加速：PMI 从 50% 上升到 100%，表明经济运行中的扩张成分多于收缩成分，扩张成分在增加，收缩成分在减少，经济处于扩张区间。
-&lt;img loading=&#34;lazy&#34; src=&#34;http://lividsu.com/img/finance_01/ch02_2.1_04.png&#34;&gt;&lt;/li&gt;
+&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:5995/img/finance_01/ch02_2.1_04.png&#34;&gt;&lt;/li&gt;
 &lt;li&gt;扩张减速：PMI 从 100% 下降到 50%，表明经济运行中的扩张成分多于收缩成分，但扩张成分在减少，收缩成分在增加，经济仍处于扩张区间。
-&lt;img loading=&#34;lazy&#34; src=&#34;http://lividsu.com/img/finance_01/ch02_2.1_05.png&#34;&gt;&lt;/li&gt;
+&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:5995/img/finance_01/ch02_2.1_05.png&#34;&gt;&lt;/li&gt;
 &lt;li&gt;收缩加速：PMI 从 50% 下降到 0，表明经济运行中的收缩成分多于扩张成分，扩张成分在减少，收缩成分在增加，经济处于收缩区间。
-&lt;img loading=&#34;lazy&#34; src=&#34;http://lividsu.com/img/finance_01/ch02_2.1_06.png&#34;&gt;&lt;/li&gt;
+&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:5995/img/finance_01/ch02_2.1_06.png&#34;&gt;&lt;/li&gt;
 &lt;li&gt;收缩减速：PMI 从 0 上升到 50%，表明经济运行中的收缩成分多于扩张成分，但扩张成分在增加，收缩成分在减少，经济仍处于收缩区间。
-&lt;img loading=&#34;lazy&#34; src=&#34;http://lividsu.com/img/finance_01/ch02_2.1_07.png&#34;&gt;&lt;/li&gt;
+&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:5995/img/finance_01/ch02_2.1_07.png&#34;&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
   </channel>
