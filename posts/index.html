@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=5498&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>Posts | Blogs of livid</title>
 <meta name="keywords" content="">
 <meta name="description" content="Posts - Blogs of livid">
 <meta name="author" content="">
-<link rel="canonical" href="http://lividsu.com/posts/">
+<link rel="canonical" href="http://localhost:5498/posts/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.d72444526d7ecbdb0015438a7fa89054a658bf759d0542e2e5df81ce94b493ee.css" integrity="sha256-1yREUm1&#43;y9sAFUOKf6iQVKZYv3WdBULi5d&#43;BzpS0k&#43;4=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://lividsu.com/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://lividsu.com/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://lividsu.com/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://lividsu.com/apple-touch-icon.png">
-<link rel="mask-icon" href="http://lividsu.com/safari-pinned-tab.svg">
+<link rel="icon" href="http://localhost:5498/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:5498/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:5498/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:5498/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:5498/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="http://lividsu.com/posts/index.xml">
-<link rel="alternate" hreflang="en" href="http://lividsu.com/posts/">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:5498/posts/index.xml">
+<link rel="alternate" hreflang="en" href="http://localhost:5498/posts/">
 <noscript>
     <style>
         #theme-toggle,
@@ -56,30 +56,7 @@
         }
 
     </style>
-</noscript><meta property="og:url" content="http://lividsu.com/posts/">
-  <meta property="og:site_name" content="Blogs of livid">
-  <meta property="og:title" content="Posts">
-  <meta property="og:locale" content="en-us">
-  <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Posts">
-<meta name="twitter:description" content="">
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Posts",
-      "item": "http://lividsu.com/posts/"
-    }
-  ]
-}
-</script>
+</noscript>
 </head>
 
 <body class="list" id="top">
@@ -97,7 +74,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://lividsu.com/" accesskey="h" title="Blogs of livid (Alt + H)">Blogs of livid</a>
+            <a href="http://localhost:5498/" accesskey="h" title="Blogs of livid (Alt + H)">Blogs of livid</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -142,7 +119,7 @@
 # Update Package Lists:sudo apt update# Install Required Packages:sudo apt install -y apt-transport-https ca-certificates curl gnupg lsb-release# Add Docker’s Official GPG Key:curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg# Set Up the Stable Repository:echo &#34;deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&#34; | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null# Update Package Lists Again:sudo apt update# Install Docker Engine:sudo apt install -y docker-ce docker-ce-cli containerd.io# Verify Docker Installation:sudo docker --version ...</p>
   </div>
   <footer class="entry-footer"><span title='2024-05-27 10:44:51 +0800 CST'>May 27, 2024</span></footer>
-  <a class="entry-link" aria-label="post link to Create Mysql on a new server with Docker" href="http://lividsu.com/posts/docker_create_mysql/"></a>
+  <a class="entry-link" aria-label="post link to Create Mysql on a new server with Docker" href="http://localhost:5498/posts/docker_create_mysql/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -154,7 +131,7 @@
     <p>import baostock as bs import pandas as pd import matplotlib.pyplot as plt import statsmodels.api as sm from sklearn.preprocessing import StandardScaler from sklearn.linear_model import LinearRegression from sklearn.model_selection import train_test_split def get_bs_df(code, list_para, start_date, end_date, frequency=&#39;d&#39;, adjustflag=&#39;3&#39;): para = &#39;,&#39;.join(list_para) rs = bs.query_history_k_data_plus(code,para, start_date=start_date, end_date=end_date, frequency=frequency, adjustflag=adjustflag) data_list = [] while (rs.error_code == &#39;0&#39;) &amp; rs.next(): data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) print(f&#39;get {len(df_result)} records!&#39;) return df_result def get_bs_profit_data(code, year, quarter): profit_list = [] rs_profit = bs.query_profit_data(code=code, year=year, quarter=quarter) while (rs_profit.error_code == &#39;0&#39;) &amp; rs_profit.next(): profit_list.append(rs_profit.get_row_data()) df_result = pd.DataFrame(profit_list, columns=rs_profit.fields) return df_result lg = bs.login() login success!code = &#39;sh.600000&#39; list_para = [&#39;date&#39;, &#39;code&#39;, &#39;close&#39;, &#39;volume&#39;, &#39;turn&#39;, &#39;peTTM&#39;, &#39;psTTM&#39;] start_date = &#39;2020-01-01&#39; end_date = &#39;2024-01-20&#39; df_daily = get_bs_df(code, list_para, start_date, end_date) df_profit = get_bs_profit_data(code, &#39;2020&#39;, &#39;1&#39;) get 984 records!df_profit ...</p>
   </div>
   <footer class="entry-footer"><span title='2024-01-24 14:56:03 +0800 CST'>January 24, 2024</span></footer>
-  <a class="entry-link" aria-label="post link to Datawhale-quant 笔记03 - 量化选股策略浅尝试" href="http://lividsu.com/posts/finance_03/"></a>
+  <a class="entry-link" aria-label="post link to Datawhale-quant 笔记03 - 量化选股策略浅尝试" href="http://localhost:5498/posts/finance_03/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -180,7 +157,7 @@ isST：中国市场上被打上特殊标记（special treatment），表示公�
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2024-01-23 20:13:18 +0800 CST'>January 23, 2024</span></footer>
-  <a class="entry-link" aria-label="post link to Datawhale-quant 笔记02 - Python读取股市数据" href="http://lividsu.com/posts/finance_02/"></a>
+  <a class="entry-link" aria-label="post link to Datawhale-quant 笔记02 - Python读取股市数据" href="http://localhost:5498/posts/finance_02/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -207,12 +184,12 @@ PMI 取值范围在 0 至 100% 之间，50% 为扩张与收缩的临界点，50%
 扩张加速：PMI 从 50% 上升到 100%，表明经济运行中的扩张成分多于收缩成分，扩张成分在增加，收缩成分在减少，经济处于扩张区间。 扩张减速：PMI 从 100% 下降到 50%，表明经济运行中的扩张成分多于收缩成分，但扩张成分在减少，收缩成分在增加，经济仍处于扩张区间。 收缩加速：PMI 从 50% 下降到 0，表明经济运行中的收缩成分多于扩张成分，扩张成分在减少，收缩成分在增加，经济处于收缩区间。 收缩减速：PMI 从 0 上升到 50%，表明经济运行中的收缩成分多于扩张成分，但扩张成分在增加，收缩成分在减少，经济仍处于收缩区间。 </p>
   </div>
   <footer class="entry-footer"><span title='2024-01-21 19:18:32 +0800 CST'>January 21, 2024</span></footer>
-  <a class="entry-link" aria-label="post link to Datawhale-quant 笔记 - 金融市场基本概念" href="http://lividsu.com/posts/finance_01/"></a>
+  <a class="entry-link" aria-label="post link to Datawhale-quant 笔记 - 金融市场基本概念" href="http://localhost:5498/posts/finance_01/"></a>
 </article>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="http://lividsu.com/">Blogs of livid</a></span> · 
+        <span>&copy; 2025 <a href="http://localhost:5498/">Blogs of livid</a></span> · 
 
     <span>
         Powered by
