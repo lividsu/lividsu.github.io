@@ -3,6 +3,9 @@ languageCode = 'en-us'
 title = 'Blogs of livid'
 theme = "papermod"
 
+[params]
+  favicon = "/favicon.ico"
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
