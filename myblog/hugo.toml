@@ -5,7 +5,7 @@ theme = "papermod"
 
 [params]
   # Favicon
-  favicon = "/favicon.ico"
+  favicon = "favicon.ico"
   # Apple Touch Icon
   apple_touch_icon = "/apple-touch-icon.png"
   # Safari Pinned Tab
