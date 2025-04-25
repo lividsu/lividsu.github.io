@@ -69,16 +69,16 @@ tradestatus：交易状态(1：正常交易 0：停牌)
 pctChg：涨跌幅，[(指定交易日的收盘价-指定交易日前收盘价)/指定交易日前收盘价]*100%
 isST：中国市场上被打上特殊标记（special treatment），表示公司近期出现了一些财务问题，可能会被限制交易">
 <meta name="author" content="">
-<link rel="canonical" href="http://lividsu.com/posts/finance_02/">
+<link rel="canonical" href="https://lividsu.com/posts/finance_02/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css" integrity="sha256-1vzSCk&#43;4bvpN&#43;sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://lividsu.com/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://lividsu.com/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://lividsu.com/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://lividsu.com/apple-touch-icon.png">
-<link rel="mask-icon" href="http://lividsu.com/safari-pinned-tab.svg">
+<link rel="icon" href="https://lividsu.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://lividsu.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://lividsu.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://lividsu.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://lividsu.com/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://lividsu.com/posts/finance_02/">
+<link rel="alternate" hreflang="en" href="https://lividsu.com/posts/finance_02/">
 <noscript>
     <style>
         #theme-toggle,
@@ -115,7 +115,7 @@ isST：中国市场上被打上特殊标记（special treatment），表示公�
         }
 
     </style>
-</noscript><meta property="og:url" content="http://lividsu.com/posts/finance_02/">
+</noscript><meta property="og:url" content="https://lividsu.com/posts/finance_02/">
   <meta property="og:site_name" content="Blogs of livid">
   <meta property="og:title" content="Datawhale-quant 笔记02 - Python读取股市数据">
   <meta property="og:description" content="!pip install baostock import baostock as bs import pandas as pd import matplotlib.pyplot as plt # login baostock lg = bs.login() print(f&#39;error code {lg.error_code}&#39;) print(f&#39;error msg {lg.error_msg}&#39;) # 分钟线指标：date,time,code,open,high,low,close,volume,amount,adjustflag # 周月线指标：date,code,open,high,low,close,volume,amount,adjustflag,turn,pctChg rs = bs.query_history_k_data_plus(&#34;sh.600000&#34;, &#34;date,code,open,high,low,close,preclose,volume,amount,adjustflag,turn,tradestatus,pctChg,isST&#34;, start_date=&#39;2022-07-01&#39;, end_date=&#39;2023-12-31&#39;, frequency=&#34;d&#34;, adjustflag=&#34;3&#34;) login success! error code 0 error msg success data_list = [] while (rs.error_code == &#39;0&#39;) &amp; rs.next(): # 获取一条记录，将记录合并在一起 data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) df_result.info() &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt; RangeIndex: 367 entries, 0 to 366 Data columns (total 14 columns): # Column Non-Null Count Dtype --- ------ -------------- ----- 0 date 367 non-null object 1 code 367 non-null object 2 open 367 non-null object 3 high 367 non-null object 4 low 367 non-null object 5 close 367 non-null object 6 preclose 367 non-null object 7 volume 367 non-null object 8 amount 367 non-null object 9 adjustflag 367 non-null object 10 turn 367 non-null object 11 tradestatus 367 non-null object 12 pctChg 367 non-null object 13 isST 367 non-null object dtypes: object(14) memory usage: 40.3&#43; KB 逐条解释
@@ -211,13 +211,13 @@ isST：中国市场上被打上特殊标记（special treatment），表示公�
       "@type": "ListItem",
       "position":  1 ,
       "name": "Posts",
-      "item": "http://lividsu.com/posts/"
+      "item": "https://lividsu.com/posts/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "Datawhale-quant 笔记02 - Python读取股市数据",
-      "item": "http://lividsu.com/posts/finance_02/"
+      "item": "https://lividsu.com/posts/finance_02/"
     }
   ]
 }
@@ -239,14 +239,14 @@ isST：中国市场上被打上特殊标记（special treatment），表示公�
   "dateModified": "2024-01-23T20:13:18+08:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://lividsu.com/posts/finance_02/"
+    "@id": "https://lividsu.com/posts/finance_02/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Blogs of livid",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://lividsu.com/favicon.ico"
+      "url": "https://lividsu.com/favicon.ico"
     }
   }
 }
@@ -268,7 +268,7 @@ isST：中国市场上被打上特殊标记（special treatment），表示公�
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://lividsu.com/" accesskey="h" title="Blogs of livid (Alt + H)">Blogs of livid</a>
+            <a href="https://lividsu.com/" accesskey="h" title="Blogs of livid (Alt + H)">Blogs of livid</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -400,7 +400,7 @@ PC(Price-to-Cash Flow Ratio) = 股票市值 / 现金流<br>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="http://lividsu.com/">Blogs of livid</a></span> · 
+        <span>&copy; 2025 <a href="https://lividsu.com/">Blogs of livid</a></span> · 
 
     <span>
         Powered by

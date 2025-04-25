@@ -48,16 +48,16 @@ df_profit
 
 ">
 <meta name="author" content="">
-<link rel="canonical" href="http://lividsu.com/posts/finance_03/">
+<link rel="canonical" href="https://lividsu.com/posts/finance_03/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css" integrity="sha256-1vzSCk&#43;4bvpN&#43;sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://lividsu.com/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://lividsu.com/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://lividsu.com/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://lividsu.com/apple-touch-icon.png">
-<link rel="mask-icon" href="http://lividsu.com/safari-pinned-tab.svg">
+<link rel="icon" href="https://lividsu.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://lividsu.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://lividsu.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://lividsu.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://lividsu.com/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://lividsu.com/posts/finance_03/">
+<link rel="alternate" hreflang="en" href="https://lividsu.com/posts/finance_03/">
 <noscript>
     <style>
         #theme-toggle,
@@ -94,7 +94,7 @@ df_profit
         }
 
     </style>
-</noscript><meta property="og:url" content="http://lividsu.com/posts/finance_03/">
+</noscript><meta property="og:url" content="https://lividsu.com/posts/finance_03/">
   <meta property="og:site_name" content="Blogs of livid">
   <meta property="og:title" content="Datawhale-quant 笔记03 - 量化选股策略浅尝试">
   <meta property="og:description" content="import baostock as bs import pandas as pd import matplotlib.pyplot as plt import statsmodels.api as sm from sklearn.preprocessing import StandardScaler from sklearn.linear_model import LinearRegression from sklearn.model_selection import train_test_split def get_bs_df(code, list_para, start_date, end_date, frequency=&#39;d&#39;, adjustflag=&#39;3&#39;): para = &#39;,&#39;.join(list_para) rs = bs.query_history_k_data_plus(code,para, start_date=start_date, end_date=end_date, frequency=frequency, adjustflag=adjustflag) data_list = [] while (rs.error_code == &#39;0&#39;) &amp; rs.next(): data_list.append(rs.get_row_data()) df_result = pd.DataFrame(data_list, columns=rs.fields) print(f&#39;get {len(df_result)} records!&#39;) return df_result def get_bs_profit_data(code, year, quarter): profit_list = [] rs_profit = bs.query_profit_data(code=code, year=year, quarter=quarter) while (rs_profit.error_code == &#39;0&#39;) &amp; rs_profit.next(): profit_list.append(rs_profit.get_row_data()) df_result = pd.DataFrame(profit_list, columns=rs_profit.fields) return df_result lg = bs.login() login success! code = &#39;sh.600000&#39; list_para = [&#39;date&#39;, &#39;code&#39;, &#39;close&#39;, &#39;volume&#39;, &#39;turn&#39;, &#39;peTTM&#39;, &#39;psTTM&#39;] start_date = &#39;2020-01-01&#39; end_date = &#39;2024-01-20&#39; df_daily = get_bs_df(code, list_para, start_date, end_date) df_profit = get_bs_profit_data(code, &#39;2020&#39;, &#39;1&#39;) get 984 records! df_profit ">
@@ -156,13 +156,13 @@ df_profit
       "@type": "ListItem",
       "position":  1 ,
       "name": "Posts",
-      "item": "http://lividsu.com/posts/"
+      "item": "https://lividsu.com/posts/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "Datawhale-quant 笔记03 - 量化选股策略浅尝试",
-      "item": "http://lividsu.com/posts/finance_03/"
+      "item": "https://lividsu.com/posts/finance_03/"
     }
   ]
 }
@@ -184,14 +184,14 @@ df_profit
   "dateModified": "2024-01-24T14:56:03+08:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://lividsu.com/posts/finance_03/"
+    "@id": "https://lividsu.com/posts/finance_03/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Blogs of livid",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://lividsu.com/favicon.ico"
+      "url": "https://lividsu.com/favicon.ico"
     }
   }
 }
@@ -213,7 +213,7 @@ df_profit
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://lividsu.com/" accesskey="h" title="Blogs of livid (Alt + H)">Blogs of livid</a>
+            <a href="https://lividsu.com/" accesskey="h" title="Blogs of livid (Alt + H)">Blogs of livid</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -1527,7 +1527,7 @@ Name: epsTTM, dtype: float64
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="http://lividsu.com/">Blogs of livid</a></span> · 
+        <span>&copy; 2025 <a href="https://lividsu.com/">Blogs of livid</a></span> · 
 
     <span>
         Powered by

@@ -2,29 +2,29 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://lividsu.com/</loc>
+    <loc>https://lividsu.com/</loc>
     <lastmod>2025-03-18T19:35:51+08:00</lastmod>
   </url><url>
-    <loc>http://lividsu.com/posts/hi_robot/</loc>
+    <loc>https://lividsu.com/posts/hi_robot/</loc>
     <lastmod>2025-03-18T19:35:51+08:00</lastmod>
   </url><url>
-    <loc>http://lividsu.com/posts/</loc>
+    <loc>https://lividsu.com/posts/</loc>
     <lastmod>2025-03-18T19:35:51+08:00</lastmod>
   </url><url>
-    <loc>http://lividsu.com/posts/docker_create_mysql/</loc>
+    <loc>https://lividsu.com/posts/docker_create_mysql/</loc>
     <lastmod>2024-05-27T10:44:51+08:00</lastmod>
   </url><url>
-    <loc>http://lividsu.com/posts/finance_03/</loc>
+    <loc>https://lividsu.com/posts/finance_03/</loc>
     <lastmod>2024-01-24T14:56:03+08:00</lastmod>
   </url><url>
-    <loc>http://lividsu.com/posts/finance_02/</loc>
+    <loc>https://lividsu.com/posts/finance_02/</loc>
     <lastmod>2024-01-23T20:13:18+08:00</lastmod>
   </url><url>
-    <loc>http://lividsu.com/posts/finance_01/</loc>
+    <loc>https://lividsu.com/posts/finance_01/</loc>
     <lastmod>2024-01-21T19:18:32+08:00</lastmod>
   </url><url>
-    <loc>http://lividsu.com/categories/</loc>
+    <loc>https://lividsu.com/categories/</loc>
   </url><url>
-    <loc>http://lividsu.com/tags/</loc>
+    <loc>https://lividsu.com/tags/</loc>
   </url>
 </urlset>
