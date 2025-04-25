@@ -1,17 +1,7 @@
-baseURL = 'https://lividsu.com/'
+baseURL = 'http://lividsu.com/'
 languageCode = 'en-us'
 title = 'Blogs of livid'
 theme = "papermod"
-
-[params]
-  # Favicon
-  favicon = "favicon.ico"
-  # Apple Touch Icon
-  apple_touch_icon = "/apple-touch-icon.png"
-  # Safari Pinned Tab
-  safari_pinned_tab = "/safari-pinned-tab.svg"
-  # Theme Color
-  theme_color = "#2e2e33"
 
 [markup]
   [markup.goldmark]
